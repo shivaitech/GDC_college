@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    touch-action: manipulation; /* prevents double-tap zoom on all elements */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent iOS auto-zoom on input focus (font must be >= 16px) */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  body {
+    font-family: 'Inter', 'Noto Sans Devanagari', system-ui, sans-serif;
+    @apply text-gray-800 bg-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e40af;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-primary-700 hover:bg-primary-800 text-white font-semibold rounded-lg transition-all duration-300 shadow-green hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .btn-saffron {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-saffron-500 hover:bg-saffron-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-primary-700 text-primary-700 hover:bg-primary-700 hover:text-white font-semibold rounded-lg transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-primary-900;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-600 mt-3 max-w-2xl;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-card hover:shadow-card-lg transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .badge {
+    @apply inline-block px-3 py-1 text-xs font-semibold rounded-full;
+  }
+
+  .nav-link {
+    @apply relative text-sm font-medium transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-saffron-500 after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all duration-200 bg-white;
+  }
+
+  .ticker-container {
+    @apply flex whitespace-nowrap;
+    animation: ticker 40s linear infinite;
+  }
+
+  .ticker-container:hover {
+    animation-play-state: paused;
+  }
+
+  .hero-slide {
+    @apply absolute inset-0 bg-cover bg-center transition-opacity duration-1000;
+  }
+
+  .stat-number {
+    @apply text-4xl md:text-5xl font-extrabold text-primary-700;
+  }
+
+  .section-divider {
+    @apply w-16 h-1 bg-saffron-500 rounded-full mx-auto mt-4 mb-2;
+  }
+
+  .section-divider-left {
+    @apply w-16 h-1 bg-saffron-500 rounded-full mt-4 mb-2;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(37,99,235,0.06) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-md border border-white/10;
+  }
+}
+
+/* Ticker animation override for smooth looping */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Fade in animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom radio/checkbox */
+input[type='radio']:checked,
+input[type='checkbox']:checked {
+  accent-color: #1e40af;
+}
+
+/* Print styles */
+@media print {
+  .no-print { display: none !important; }
+}

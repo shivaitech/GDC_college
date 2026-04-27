@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Mahayogi Guru Gorakhnath Rajkiya Mahavidyalaya Bithyani — Government Degree College, Yamkeshwar, Pauri Garhwal, Uttarakhand. Providing quality higher education since 2005." />
+    <meta name="keywords" content="GDC Bithyani, Government College Bithyani, Yamkeshwar College, Pauri Garhwal, Uttarakhand College, BA degree, Mahayogi Guru Gorakhnath" />
+    <meta name="theme-color" content="#1e40af" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Mahayogi Guru Gorakhnath Rajkiya Mahavidyalaya Bithyani" />
+    <meta property="og:description" content="Government Degree College, Yamkeshwar, Pauri Garhwal, Uttarakhand" />
+    <meta property="og:type" content="website" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>महायोगी गुरु गोरखनाथ राजकीय महाविद्यालय बिथ्याणी</title>
+    <script>
+      // Prevent iOS pinch-to-zoom (iOS ignores user-scalable=no since iOS 10)
+      document.addEventListener('touchstart', function(e) {
+        if (e.touches.length > 1) e.preventDefault();
+      }, { passive: false });
+      var lastTouchEnd = 0;
+      document.addEventListener('touchend', function(e) {
+        var now = Date.now();
+        if (now - lastTouchEnd <= 300) e.preventDefault();
+        lastTouchEnd = now;
+      }, { passive: false });
+      // Prevent gesture events (Safari-specific)
+      document.addEventListener('gesturestart',  function(e) { e.preventDefault(); }, { passive: false });
+      document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, { passive: false });
+      document.addEventListener('gestureend',   function(e) { e.preventDefault(); }, { passive: false });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
