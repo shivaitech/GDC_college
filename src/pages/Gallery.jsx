@@ -164,7 +164,7 @@ export default function Gallery() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeCategory === cat
-                    ? 'bg-primary-700 text-white shadow-green'
+                    ? 'bg-primary-700 text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]'
                     : 'bg-gray-100 text-gray-600 hover:bg-primary-50 hover:text-primary-700'
                 }`}
               >

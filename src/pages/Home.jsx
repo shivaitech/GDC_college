@@ -295,7 +295,7 @@ function AboutSection() {
               />
             </div>
             {/* Floating badge */}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary-700 text-white rounded-2xl px-5 py-3 shadow-green text-center">
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary-700 text-white rounded-2xl px-5 py-3 shadow-[0_4px_14px_rgba(37,99,235,0.35)] text-center">
               <p className="text-2xl font-extrabold">20+</p>
               <p className="text-xs text-primary-200">Years of Excellence</p>
             </div>
@@ -604,7 +604,7 @@ function PrincipalMessage() {
             <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
               {/* Photo */}
               <div className="flex flex-col items-center">
-                <div className="w-32 h-32 rounded-full bg-primary-100 border-4 border-primary-200 overflow-hidden mb-3 shadow-green">
+                <div className="w-32 h-32 rounded-full bg-primary-100 border-4 border-primary-200 overflow-hidden mb-3 shadow-[0_4px_14px_rgba(37,99,235,0.25)]">
                   <img
                     src="https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/prinj.jpg"
                     alt="Principal"

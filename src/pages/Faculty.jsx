@@ -56,7 +56,7 @@ function FacultyCard({ member, index }) {
     >
       {/* Avatar */}
       <div className={`relative w-20 h-20 mx-auto mb-4`}>
-        <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${getAvatarBg(member.avatar)} flex items-center justify-center text-white text-xl font-bold shadow-md group-hover:shadow-green transition-shadow duration-300`}>
+        <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${getAvatarBg(member.avatar)} flex items-center justify-center text-white text-xl font-bold shadow-md group-hover:shadow-[0_4px_14px_rgba(255,124,18,0.35)] transition-shadow duration-300`}>
           {member.avatar}
         </div>
         {member.isPrincipal && (

@@ -145,7 +145,7 @@ function HistorySection() {
                 className="rounded-2xl w-full shadow-card-lg object-cover"
                 onError={e => { e.target.src = 'https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80' }}
               />
-              <div className="absolute -bottom-5 -right-5 bg-primary-700 rounded-2xl p-5 shadow-green hidden md:block">
+              <div className="absolute -bottom-5 -right-5 bg-primary-700 rounded-2xl p-5 shadow-[0_4px_14px_rgba(37,99,235,0.35)] hidden md:block">
                 <p className="text-white text-3xl font-extrabold">2005</p>
                 <p className="text-primary-200 text-sm">Year Founded</p>
               </div>
@@ -279,7 +279,7 @@ function PrincipalMessageFull() {
           <div className="card p-8 md:p-10">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
               <div className="flex flex-col items-center text-center">
-                <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-primary-200 shadow-green mb-3">
+                <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-primary-200 shadow-[0_4px_14px_rgba(37,99,235,0.25)] mb-3">
                   <img
                     src={IMAGES.principal}
                     alt="Principal Prof. Yogesh Kumar Sharma"

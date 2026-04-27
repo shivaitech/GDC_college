@@ -238,7 +238,7 @@ function AdmissionProcess() {
                   <FaArrowRight className="text-gray-300" />
                 </div>
               )}
-              <div className="w-12 h-12 rounded-full bg-primary-700 text-white text-base font-extrabold flex items-center justify-center mx-auto mb-4 shadow-[0_4px_12px_rgba(20,83,51,0.3)]">
+              <div className="w-12 h-12 rounded-full bg-primary-700 text-white text-base font-extrabold flex items-center justify-center mx-auto mb-4 shadow-[0_4px_12px_rgba(37,99,235,0.35)]">
                 {s.step}
               </div>
               <h3 className="font-bold text-primary-900 text-sm mb-2">{s.title}</h3>
@@ -339,8 +339,8 @@ export default function Programs() {
                 onClick={() => setActiveTag(tag)}
                 className={`px-5 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeTag === tag
-                    ? 'bg-gray-200 text-gray-900 font-semibold'
-                    : 'text-gray-500 hover:text-gray-800 hover:bg-gray-100'
+                    ? 'bg-primary-700 text-white font-semibold'
+                    : 'text-gray-500 hover:text-primary-700 hover:bg-primary-50'
                 }`}
               >
                 {tag}
