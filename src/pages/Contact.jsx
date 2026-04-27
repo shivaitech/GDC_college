@@ -71,8 +71,8 @@ function ContactForm() {
   if (submitted) {
     return (
       <div className="text-center py-12">
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <FaCheck className="text-green-600 text-2xl" />
+        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <FaCheck className="text-blue-600 text-2xl" />
         </div>
         <h3 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h3>
         <p className="text-gray-600 text-sm mb-6">
@@ -218,7 +218,7 @@ function ContactInfo() {
       title: 'Office Hours',
       titleHindi: 'कार्यालय समय',
       content: 'Mon – Sat: 10:00 AM – 5:00 PM\nSunday: Closed',
-      color: 'bg-green-100 text-green-700',
+      color: 'bg-orange-100 text-orange-700',
     },
   ]
 
@@ -283,9 +283,9 @@ function ContactInfo() {
         href="https://wa.me/918979321615"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-3 p-4 bg-green-50 border-2 border-green-200 rounded-xl hover:bg-green-100 transition-colors"
+        className="flex items-center gap-3 p-4 bg-orange-50 border-2 border-orange-200 rounded-xl hover:bg-orange-100 transition-colors"
       >
-        <FaWhatsapp className="text-green-600 text-2xl flex-shrink-0" />
+        <FaWhatsapp className="text-orange-500 text-2xl flex-shrink-0" />
         <div>
           <p className="text-sm font-semibold text-gray-900">WhatsApp Us</p>
           <p className="text-xs text-gray-500">Quick response for admission queries</p>

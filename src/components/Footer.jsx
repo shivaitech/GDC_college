@@ -173,7 +173,7 @@ export default function Footer() {
                   href={`https://wa.me/918979321615`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-slate-200 hover:bg-green-600 hover:text-white text-gray-600 flex items-center justify-center transition-colors"
+                  className="w-9 h-9 rounded-full bg-slate-200 hover:bg-orange-500 hover:text-white text-gray-600 flex items-center justify-center transition-colors"
                   aria-label="WhatsApp"
                 >
                   <FaWhatsapp />
