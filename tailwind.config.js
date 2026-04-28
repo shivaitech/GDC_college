@@ -49,7 +49,7 @@ export default {
         'fade-in-right': 'fadeInRight 0.6s ease-out',
         'bounce-slow':   'bounce 2s infinite',
         'ticker':        'ticker 30s linear infinite',
-        'hero-zoom':     'heroZoom 8s ease-in-out infinite alternate',
+
         'float':         'float 3s ease-in-out infinite',
       },
       keyframes: {

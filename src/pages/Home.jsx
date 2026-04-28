@@ -144,7 +144,7 @@ function HeroSlider() {
             <img
               src={s.image}
               alt={s.subtitle}
-              className="w-full h-full object-cover animate-hero-zoom"
+              className="w-full h-full object-cover"
               loading={i === 0 ? 'eager' : 'lazy'}
               onError={e => { e.target.src = 'https://images.unsplash.com/photo-1562774053-701939374585?w=1400&q=80' }}
             />
