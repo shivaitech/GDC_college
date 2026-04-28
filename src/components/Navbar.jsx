@@ -5,64 +5,64 @@ import {
 } from 'react-icons/fa'
 import { collegeInfo } from '../data/collegeData'
 
-// ─── Nav config matching old website ─────────────────────────────────────────
+// ─── Nav config — labels in Hindi (notranslate) ───────────────────────────────
 const navConfig = [
-  { label: 'Home', to: '/', exact: true },
+  { label: 'मुख्य पृष्ठ', to: '/', exact: true },
   {
-    label: 'Know More',
+    label: 'अधिक जानें',
     dropdown: [
-      { label: 'About Us',        to: '/about',   internal: true },
-      { label: 'Faculty & Staff', to: '/faculty', internal: true },
-      { label: 'Our Committee',   href: 'https://gdcbithyani.ac.in/commitee.php' },
+      { label: 'हमारे बारे में',    to: '/about',   internal: true },
+      { label: 'संकाय एवं स्टाफ',  to: '/faculty', internal: true },
+      { label: 'हमारी समिति',       href: 'https://gdcbithyani.ac.in/commitee.php' },
     ],
   },
   {
-    label: 'Our Program',
+    label: 'हमारे पाठ्यक्रम',
     dropdown: [
-      { label: 'B.A. Programs',  to: '/programs', internal: true },
-      { label: 'B.Sc. Programs', to: '/programs', internal: true },
-      { label: 'Apply Online',   href: 'https://ukadmission.samarth.ac.in/' },
+      { label: 'बी.ए. कार्यक्रम',   to: '/programs', internal: true },
+      { label: 'बी.एससी. कार्यक्रम', to: '/programs', internal: true },
+      { label: 'ऑनलाइन आवेदन',       href: 'https://ukadmission.samarth.ac.in/' },
     ],
   },
   {
-    label: 'Academics',
+    label: 'शैक्षणिक',
     dropdown: [
-      { label: 'Library',             href: 'https://gdcbithyani.ac.in/Library.php' },
-      { label: 'Academic Calendar',   href: 'https://gdcbithyani.ac.in/calender.php' },
-      { label: 'Syllabus & Programs', to: '/programs', internal: true },
-      { label: 'SDSUV University',    href: 'https://www.sdsuv.ac.in/' },
+      { label: 'पुस्तकालय',           href: 'https://gdcbithyani.ac.in/Library.php' },
+      { label: 'शैक्षणिक कैलेंडर',   href: 'https://gdcbithyani.ac.in/calender.php' },
+      { label: 'पाठ्यक्रम एवं कार्यक्रम', to: '/programs', internal: true },
+      { label: 'SDSUV विश्वविद्यालय', href: 'https://www.sdsuv.ac.in/' },
     ],
   },
   { label: 'NAAC & IQAC', href: 'http://www.naac.gov.in/' },
   { label: 'NIRF / AISHE', href: 'http://aishe.nic.in/aishe/home' },
   {
-    label: 'Activities',
+    label: 'गतिविधियाँ',
     dropdown: [
-      { label: 'NSS Unit',            to: '/about',   internal: true },
-      { label: 'Cultural Activities', to: '/gallery', internal: true },
-      { label: 'Sports',              to: '/gallery', internal: true },
-      { label: 'Events Gallery',      to: '/gallery', internal: true },
+      { label: 'एनएसएस इकाई',       to: '/about',   internal: true },
+      { label: 'सांस्कृतिक गतिविधियाँ', to: '/gallery', internal: true },
+      { label: 'खेलकूद',              to: '/gallery', internal: true },
+      { label: 'इवेंट गैलरी',         to: '/gallery', internal: true },
     ],
   },
   {
-    label: 'Student Supports',
+    label: 'छात्र सहायता',
     dropdown: [
-      { label: 'Apply Online (Samarth)',   href: 'https://ukadmission.samarth.ac.in/' },
-      { label: 'National Scholarships',    href: 'https://scholarships.gov.in/' },
-      { label: 'National Digital Library', href: 'https://ndl.iitkgp.ac.in/' },
-      { label: 'UGC India',                href: 'https://www.ugc.gov.in/' },
+      { label: 'ऑनलाइन आवेदन (समर्थ)', href: 'https://ukadmission.samarth.ac.in/' },
+      { label: 'राष्ट्रीय छात्रवृत्ति',  href: 'https://scholarships.gov.in/' },
+      { label: 'राष्ट्रीय डिजिटल पुस्तकालय', href: 'https://ndl.iitkgp.ac.in/' },
+      { label: 'UGC India',               href: 'https://www.ugc.gov.in/' },
     ],
   },
-  { label: 'Gallery', to: '/gallery' },
+  { label: 'गैलरी', to: '/gallery' },
   {
-    label: 'Downloads',
+    label: 'डाउनलोड',
     dropdown: [
-      { label: 'College Prospectus',   href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/syllabus%20%20pdf/college%20handbook%20prospectus%20pdf.pdf' },
-      { label: 'Merit List – B.A. I',  href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/News/First%20Marit%20List%20BA%20I%20sem%20.pdf' },
-      { label: 'Fee Structure 2025–26', href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/News%20paper/First%20Mertit%20list%20BA%20I%20sem.pdf' },
+      { label: 'महाविद्यालय प्रॉस्पेक्टस', href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/syllabus%20%20pdf/college%20handbook%20prospectus%20pdf.pdf' },
+      { label: 'मेरिट लिस्ट – बी.ए. प्रथम', href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/News/First%20Marit%20List%20BA%20I%20sem%20.pdf' },
+      { label: 'शुल्क संरचना 2025–26',      href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/News%20paper/First%20Mertit%20list%20BA%20I%20sem.pdf' },
     ],
   },
-  { label: 'Contact', to: '/contact' },
+  { label: 'संपर्क करें', to: '/contact' },
 ]
 
 // ─── Desktop hover-dropdown (JS-controlled so overflow-x never clips panel) ──
@@ -89,7 +89,7 @@ function DesktopDropdown({ item }) {
       </button>
       {/* Panel — rendered only when open so it never affects layout */}
       {open && (
-        <div className="absolute top-full left-0 min-w-[210px] bg-white rounded-b-lg rounded-tr-lg shadow-xl border border-gray-100 z-[200] py-1">
+        <div className="absolute top-full left-0 min-w-[210px] bg-white rounded-b-lg rounded-tr-lg shadow-xl border border-gray-100 z-[200] py-1 notranslate" translate="no">
           {item.dropdown.map((sub, j) =>
             sub.internal ? (
               <Link
@@ -168,7 +168,7 @@ export default function Navbar() {
 
       {/* ── Row 1: Navigation ── */}
       <div className="bg-primary-800">
-        <nav className="w-full px-2 sm:px-3">
+        <nav className="w-full px-2 sm:px-3 notranslate" translate="no">
           <div className="flex items-center h-10 sm:h-11 gap-1">
 
             {/* Desktop nav — all items with dropdowns (lg+) */}
