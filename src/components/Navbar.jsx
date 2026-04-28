@@ -65,39 +65,56 @@ const navConfig = [
   { label: 'Contact', to: '/contact' },
 ]
 
-// ─── Desktop hover-dropdown ───────────────────────────────────────────────────
+// ─── Desktop hover-dropdown (JS-controlled so overflow-x never clips panel) ──
 function DesktopDropdown({ item }) {
+  const [open, setOpen] = useState(false)
+  let closeTimer = null
+
+  const handleEnter = () => { clearTimeout(closeTimer); setOpen(true) }
+  const handleLeave = () => { closeTimer = setTimeout(() => setOpen(false), 120) }
+
   return (
-    <div className="relative group h-full flex items-center">
-      <button className="flex items-center gap-0.5 px-1.5 xl:px-2 py-1.5 text-[0.65rem] xl:text-[0.7rem] font-semibold rounded transition-colors text-primary-100 hover:bg-white/10 hover:text-white whitespace-nowrap group-hover:bg-white/10 group-hover:text-white uppercase tracking-wide">
+    <div
+      className="relative h-full flex items-center"
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      <button
+        className={`flex items-center gap-0.5 px-1.5 xl:px-2 py-1.5 text-[0.65rem] xl:text-[0.7rem] font-semibold rounded transition-colors whitespace-nowrap uppercase tracking-wide ${
+          open ? 'bg-white/20 text-white' : 'text-primary-100 hover:bg-white/10 hover:text-white'
+        }`}
+      >
         {item.label}
-        <FaChevronDown className="text-[7px] opacity-70 group-hover:rotate-180 transition-transform duration-200 flex-shrink-0" />
+        <FaChevronDown className={`text-[7px] opacity-70 transition-transform duration-200 flex-shrink-0 ${open ? 'rotate-180' : ''}`} />
       </button>
-      {/* Panel */}
-      <div className="absolute top-full left-0 mt-0 min-w-[200px] bg-white rounded-b-lg rounded-tr-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-[100] py-1">
-        {item.dropdown.map((sub, j) =>
-          sub.internal ? (
-            <Link
-              key={j}
-              to={sub.to}
-              className="block px-4 py-2 text-xs text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
-            >
-              {sub.label}
-            </Link>
-          ) : (
-            <a
-              key={j}
-              href={sub.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between px-4 py-2 text-xs text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors gap-2"
-            >
-              {sub.label}
-              <FaExternalLinkAlt className="text-[8px] opacity-40 flex-shrink-0" />
-            </a>
-          )
-        )}
-      </div>
+      {/* Panel — rendered only when open so it never affects layout */}
+      {open && (
+        <div className="absolute top-full left-0 min-w-[210px] bg-white rounded-b-lg rounded-tr-lg shadow-xl border border-gray-100 z-[200] py-1">
+          {item.dropdown.map((sub, j) =>
+            sub.internal ? (
+              <Link
+                key={j}
+                to={sub.to}
+                className="block px-4 py-2.5 text-xs text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                {sub.label}
+              </Link>
+            ) : (
+              <a
+                key={j}
+                href={sub.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between px-4 py-2.5 text-xs text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors gap-2"
+              >
+                {sub.label}
+                <FaExternalLinkAlt className="text-[8px] opacity-40 flex-shrink-0" />
+              </a>
+            )
+          )}
+        </div>
+      )}
     </div>
   )
 }
@@ -131,7 +148,7 @@ export default function Navbar() {
           <div className="flex items-center h-10 sm:h-11 gap-1">
 
             {/* Desktop nav — all items with dropdowns (lg+) */}
-            <div className="hidden lg:flex items-center flex-1 h-full overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
+            <div className="hidden lg:flex items-center flex-1 h-full">
               {navConfig.map((item, i) => {
                 if (item.dropdown) return <DesktopDropdown key={i} item={item} />
                 if (item.to) return (
