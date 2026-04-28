@@ -345,27 +345,63 @@ export default function Navbar() {
               </p>
             </div>
 
-            {/* ── Desktop (md+): 3-column ── */}
-            <div className="hidden md:flex items-center gap-4">
-              <Link to="/" className="flex-shrink-0">
-                <img src="/logo.png" alt="GDC Bithyani"
-                  className="w-14 h-14 lg:w-16 lg:h-16 rounded-full object-cover" />
-              </Link>
-              <div className="flex-1 min-w-0 text-center">
-                <p className="font-hindi font-extrabold text-red-600 leading-snug"
-                   style={{ fontSize: 'clamp(0.78rem, 1.5vw, 1.1rem)' }}>
-                  महायोगी गुरु गोरखनाथ राजकीय महाविद्यालय बिथ्याणी, यमकेश्वर पौड़ी गढ़वाल उत्तराखंड
-                </p>
-                <p className="text-blue-700 font-semibold leading-tight mt-0.5"
-                   style={{ fontSize: 'clamp(0.6rem, 1.1vw, 0.8rem)' }}>
-                  Mahayogi Gurugorakhnath Govt. Degree College Bithyani, Yamkeswar, Pauri Garhwal, Uttarakhand
-                </p>
+            {/* ── Desktop (md+): left-aligned name + right affiliation ── */}
+            <div className="hidden md:flex items-center justify-between gap-4 w-full">
+
+              {/* LEFT: logo + college names */}
+              <div className="flex items-center gap-3 min-w-0">
+                <Link to="/" className="flex-shrink-0">
+                  <img src="/logo.png" alt="GDC Bithyani"
+                    className="w-14 h-14 lg:w-16 lg:h-16 rounded-full object-cover" />
+                </Link>
+                <div className="min-w-0">
+                  <p className="font-hindi font-extrabold text-red-600 leading-snug"
+                     style={{ fontSize: 'clamp(0.82rem, 1.5vw, 1.15rem)' }}>
+                    महायोगी गुरु गोरखनाथ राजकीय महाविद्यालय बिथ्याणी
+                  </p>
+                  <p className="font-hindi font-semibold text-gray-600 leading-tight mt-0.5"
+                     style={{ fontSize: 'clamp(0.65rem, 1vw, 0.82rem)' }}>
+                    यमकेश्वर, पौड़ी गढ़वाल, उत्तराखंड – 246121
+                  </p>
+                  <p className="text-primary-700 font-semibold leading-tight mt-0.5"
+                     style={{ fontSize: 'clamp(0.58rem, 0.9vw, 0.75rem)' }}>
+                    Mahayogi Gurugorakhnath Govt. Degree College Bithyani, Yamkeswar, Pauri Garhwal, Uttarakhand
+                  </p>
+                </div>
               </div>
-              <div className="flex-shrink-0 text-right" style={{ maxWidth: '165px' }}>
-                <p className="text-gray-500 leading-tight text-[0.6rem]">Affiliated to</p>
-                <p className="text-primary-800 font-bold leading-tight text-[0.65rem]">Sri Dev Suman Uttarakhand University</p>
-                <p className="text-gray-400 leading-tight text-[0.58rem]">Badshahithaul, Tehri Garhwal</p>
+
+              {/* RIGHT: affiliations */}
+              <div className="flex-shrink-0 flex items-center gap-3 border-l border-gray-200 pl-4">
+                {/* Current: SDSUV */}
+                <a href="https://www.sdsuv.ac.in/" target="_blank" rel="noopener noreferrer"
+                   className="flex items-center gap-2 group">
+                  <img
+                    src="https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/Sri_Dev_Suman_Uttarakhand_University_Logo.png"
+                    alt="SDSUV"
+                    className="w-10 h-10 lg:w-12 lg:h-12 object-contain flex-shrink-0"
+                    onError={e => { e.target.style.display = 'none' }}
+                  />
+                  <div className="text-right">
+                    <p className="text-[0.55rem] text-gray-400 leading-tight">Affiliated to</p>
+                    <p className="text-primary-800 font-bold leading-tight text-[0.62rem] lg:text-[0.68rem] group-hover:text-primary-600 transition-colors">
+                      Sri Dev Suman<br />Uttarakhand University
+                    </p>
+                    <p className="text-gray-400 leading-tight text-[0.55rem]">Tehri Garhwal</p>
+                  </div>
+                </a>
+                {/* Separator */}
+                <div className="hidden lg:block w-px h-10 bg-gray-200 mx-1" />
+                {/* UGC / NAAC badges */}
+                <div className="hidden lg:flex flex-col items-center gap-1">
+                  <span className="text-[0.52rem] font-bold text-gray-400 uppercase tracking-wide">Recognised by</span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="px-1.5 py-0.5 rounded bg-primary-100 text-primary-700 text-[0.55rem] font-bold">UGC</span>
+                    <span className="px-1.5 py-0.5 rounded bg-orange-100 text-orange-700 text-[0.55rem] font-bold">NAAC</span>
+                    <span className="px-1.5 py-0.5 rounded bg-green-100 text-green-700 text-[0.55rem] font-bold">Govt.</span>
+                  </div>
+                </div>
               </div>
+
             </div>
 
           </div>
