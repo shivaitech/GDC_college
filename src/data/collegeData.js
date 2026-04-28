@@ -65,39 +65,43 @@ export const stats = [
 
 // ─── Teaching Faculty ────────────────────────────────────────────────────────
 
+// Helper: build faculty photo URL from the old website's image directory
+const fp = (file) =>
+  `https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/fac%20%26%20staff/${encodeURIComponent(file)}`
+
 export const teachingStaff = [
-  { id: 1,  name: 'प्रो. योगेश कुमार शर्मा', nameEn: 'Prof. Yogesh Kumar Sharma',    designation: 'Principal & Professor of Physics',         designationHindi: 'प्राचार्य, प्रोफ़ेसर भौतिक विज्ञान', email: 'info@gdcbithyani.ac.in',       isPrincipal: true,  avatar: 'YKS' },
-  { id: 2,  name: 'डॉ. उमेश त्यागी',          nameEn: 'Dr. Umesh Tyagi',              designation: 'Assistant Professor, History',             designationHindi: 'सहायक प्राध्यापक, इतिहास',          email: 'dr.umeshtyagi78@gmail.com',    isPrincipal: false, avatar: 'UT' },
-  { id: 3,  name: 'श्री विनय कुमार पाण्डेय',  nameEn: 'Shri Vinay Kumar Pandey',      designation: 'Assistant Professor, Economics',           designationHindi: 'सहायक प्राध्यापक, अर्थशास्त्र',     email: 'vinay111pandey@gmail.com',     isPrincipal: false, avatar: 'VP' },
-  { id: 4,  name: 'डॉ. राम सिंह सामंत',       nameEn: 'Dr. Ram Singh Samant',         designation: 'Assistant Professor, Sociology',           designationHindi: 'सहायक प्राध्यापक, समाजशास्त्र',     email: 'ramsamant007@gmail.com',       isPrincipal: false, avatar: 'RS' },
-  { id: 5,  name: 'डॉ. नीरज नौटियाल',         nameEn: 'Dr. Neeraj Nautiyal',          designation: 'Assistant Professor, Sanskrit',            designationHindi: 'सहायक प्राध्यापक, संस्कृत',         email: 'nnautiyal098@gmail.com',       isPrincipal: false, avatar: 'NN' },
-  { id: 6,  name: 'श्री सुनील प्रसाद',         nameEn: 'Shri Sunil Prasad',            designation: 'Assistant Professor, English',             designationHindi: 'सहायक प्राध्यापक, अंग्रेज़ी',       email: 'suneelprasad28@gmail.com',     isPrincipal: false, avatar: 'SP' },
-  { id: 7,  name: 'श्रीमती पूजा रानी',         nameEn: 'Shrimati Pooja Rani',          designation: 'Assistant Professor, Hindi',               designationHindi: 'सहायक प्राध्यापक, हिंदी',           email: 'poojaashwani15@gmail.com',     isPrincipal: false, avatar: 'PR' },
-  { id: 8,  name: 'डॉ. गिरिराज सिंह',         nameEn: 'Dr. Giriraj Singh',            designation: 'Assistant Professor, Political Science',   designationHindi: 'सहायक प्राध्यापक, राजनीति विज्ञान', email: 'kasana020214@gmail.com',       isPrincipal: false, avatar: 'GS' },
-  { id: 9,  name: 'डॉ. केशव प्रसाद डबराल',    nameEn: 'Dr. Keshav Prasad Dabral',     designation: 'Assistant Professor, Physics',             designationHindi: 'सहायक प्राध्यापक, भौतिक विज्ञान',   email: 'keshav.dabral@gmail.com',      isPrincipal: false, avatar: 'KD' },
-  { id: 10, name: 'डॉ. हिमानी बडोनी',         nameEn: 'Dr. Himani Badoni',            designation: 'Assistant Professor, Botany',              designationHindi: 'सहायक प्राध्यापक, वनस्पति विज्ञान', email: 'himani318@gmail.com',          isPrincipal: false, avatar: 'HB' },
-  { id: 11, name: 'श्री चेतन भट्ट',           nameEn: 'Shri Chetan Bhatt',            designation: 'Assistant Professor, Chemistry (Guest)',   designationHindi: 'सहायक प्राध्यापक, रसायन विज्ञान (अतिथि)', email: 'cbhatt47@yahoo.com',      isPrincipal: false, avatar: 'CB' },
-  { id: 12, name: 'डॉ. मनवीर सिंह कंडारी',   nameEn: 'Dr. Manveer Singh Kandari',    designation: 'Assistant Professor, Zoology (Guest)',     designationHindi: 'सहायक प्राध्यापक, जन्तु विज्ञान (अतिथि)', email: 'manveerkandari@gmail.com', isPrincipal: false, avatar: 'MK' },
-  { id: 13, name: 'श्री नरेश सिंह राणा',      nameEn: 'Shri Naresh Singh Rana',       designation: 'Yoga Instructor',                          designationHindi: 'योग प्रशिक्षक',                      email: 'Nareshrana640@gmail.com',      isPrincipal: false, avatar: 'NR' },
+  { id: 1,  name: 'प्रो. योगेश कुमार शर्मा', nameEn: 'Prof. Yogesh Kumar Sharma',    designation: 'Principal & Professor of Physics',              designationHindi: 'प्राचार्य, प्रोफ़ेसर भौतिक विज्ञान', email: 'info@gdcbithyani.ac.in',       isPrincipal: true,  avatar: 'YKS', photo: fp('prof yks.webp') },
+  { id: 2,  name: 'डॉ. उमेश त्यागी',          nameEn: 'Dr. Umesh Tyagi',              designation: 'Assistant Professor, History',                  designationHindi: 'सहायक प्राध्यापक, इतिहास',          email: 'dr.umeshtyagi78@gmail.com',    isPrincipal: false, avatar: 'UT',  photo: fp('umesh k s.webp') },
+  { id: 3,  name: 'श्री विनय कुमार पाण्डेय',  nameEn: 'Shri Vinay Kumar Pandey',      designation: 'Assistant Professor, Economics',                designationHindi: 'सहायक प्राध्यापक, अर्थशास्त्र',     email: 'vinay111pandey@gmail.com',     isPrincipal: false, avatar: 'VP',  photo: fp('vinay p.webp') },
+  { id: 4,  name: 'डॉ. राम सिंह सामंत',       nameEn: 'Dr. Ram Singh Samant',         designation: 'Assistant Professor, Sociology',                designationHindi: 'सहायक प्राध्यापक, समाजशास्त्र',     email: 'ramsamant007@gmail.com',       isPrincipal: false, avatar: 'RS',  photo: fp('samant.webp') },
+  { id: 5,  name: 'डॉ. नीरज नौटियाल',         nameEn: 'Dr. Neeraj Nautiyal',          designation: 'Assistant Professor, Sanskrit',                 designationHindi: 'सहायक प्राध्यापक, संस्कृत',         email: 'nnautiyal098@gmail.com',       isPrincipal: false, avatar: 'NN',  photo: fp('neeraj.webp') },
+  { id: 6,  name: 'श्री सुनील प्रसाद',         nameEn: 'Shri Sunil Prasad',            designation: 'Assistant Professor, English',                  designationHindi: 'सहायक प्राध्यापक, अंग्रेज़ी',       email: 'suneelprasad28@gmail.com',     isPrincipal: false, avatar: 'SP',  photo: fp('Suneel.webp') },
+  { id: 7,  name: 'श्रीमती पूजा रानी',         nameEn: 'Shrimati Pooja Rani',          designation: 'Assistant Professor, Hindi',                    designationHindi: 'सहायक प्राध्यापक, हिंदी',           email: 'poojaashwani15@gmail.com',     isPrincipal: false, avatar: 'PR',  photo: fp('Pooja.webp') },
+  { id: 8,  name: 'डॉ. गिरिराज सिंह',         nameEn: 'Dr. Giriraj Singh',            designation: 'Assistant Professor, Political Science',        designationHindi: 'सहायक प्राध्यापक, राजनीति विज्ञान', email: 'kasana020214@gmail.com',       isPrincipal: false, avatar: 'GS',  photo: fp('Giriraj.webp') },
+  { id: 9,  name: 'डॉ. केशव प्रसाद डबराल',    nameEn: 'Dr. Keshav Prasad Dabral',     designation: 'Assistant Professor, Physics',                  designationHindi: 'सहायक प्राध्यापक, भौतिक विज्ञान',   email: 'keshav.dabral@gmail.com',      isPrincipal: false, avatar: 'KD',  photo: fp('dabral2.webp') },
+  { id: 10, name: 'डॉ. हिमानी बडोनी',         nameEn: 'Dr. Himani Badoni',            designation: 'Assistant Professor, Botany',                   designationHindi: 'सहायक प्राध्यापक, वनस्पति विज्ञान', email: 'himani318@gmail.com',          isPrincipal: false, avatar: 'HB',  photo: fp('himani1.webp') },
+  { id: 11, name: 'श्री चेतन भट्ट',           nameEn: 'Shri Chetan Bhatt',            designation: 'Assistant Professor, Chemistry (Guest)',        designationHindi: 'सहायक प्राध्यापक, रसायन विज्ञान (अतिथि)', email: 'cbhatt47@yahoo.com',      isPrincipal: false, avatar: 'CB',  photo: fp('chetan.webp') },
+  { id: 12, name: 'डॉ. मनवीर सिंह कंडारी',   nameEn: 'Dr. Manveer Singh Kandari',    designation: 'Assistant Professor, Zoology (Guest)',          designationHindi: 'सहायक प्राध्यापक, जन्तु विज्ञान (अतिथि)', email: 'manveerkandari@gmail.com', isPrincipal: false, avatar: 'MK',  photo: fp('manveer.webp') },
+  { id: 13, name: 'श्री नरेश सिंह राणा',      nameEn: 'Shri Naresh Singh Rana',       designation: 'Yoga Instructor',                               designationHindi: 'योग प्रशिक्षक',                      email: 'Nareshrana640@gmail.com',      isPrincipal: false, avatar: 'NR',  photo: fp('Naresh.webp') },
 ]
 
 export const nonTeachingStaff = [
-  { id: 1,  name: 'श्री महेंद्र सिंह बिष्ट',   nameEn: 'Shri Mahendra Singh Bisht',   designation: 'Administrative Officer',     designationHindi: 'प्रशासनिक अधिकारी' },
-  { id: 2,  name: 'श्री मानेन्द्र सिंह बिष्ट', nameEn: 'Shri Manendra Singh Bisht',   designation: 'Chief Assistant',            designationHindi: 'मुख्य सहायक' },
-  { id: 3,  name: 'श्री संजय कुमार रतूड़ी',    nameEn: 'Shri Sanjay Kumar Raturi',    designation: 'Assistant Accountant',       designationHindi: 'सहायक लेखाकार' },
-  { id: 4,  name: 'श्रीमती सीमा देवी',          nameEn: 'Shrimati Seema Devi',          designation: 'Assistant Librarian',        designationHindi: 'सहायक पुस्तकालय अध्यक्ष' },
-  { id: 5,  name: 'श्रीमती उर्वशी जुयाल',       nameEn: 'Shrimati Urvashi Juyal',       designation: 'Library Clerk',              designationHindi: 'पुस्तकालय लिपिक' },
-  { id: 6,  name: 'श्री उपेन्द्र कुमार',         nameEn: 'Shri Upendra Kumar',           designation: 'Junior Clerk',               designationHindi: 'कनिष्ठ लिपिक' },
-  { id: 7,  name: 'श्री अरविंद कुमार',           nameEn: 'Shri Arvind Kumar',            designation: 'Junior Assistant',           designationHindi: 'कनिष्ठ सहायक' },
-  { id: 8,  name: 'श्री सुनील रावत',             nameEn: 'Shri Sunil Rawat',             designation: 'Computer Operator',          designationHindi: 'कंप्यूटर ऑपरेटर' },
-  { id: 9,  name: 'श्रीमती बीना देवी',           nameEn: 'Shrimati Bina Devi',           designation: 'Store Keeper',               designationHindi: 'स्टोर कीपर' },
-  { id: 10, name: 'श्री सतीश कुमार नेगी',        nameEn: 'Shri Satish Kumar Negi',       designation: 'Electrician',                designationHindi: 'विधुतकार' },
-  { id: 11, name: 'श्री गजेंद्र सिंह',           nameEn: 'Shri Gajendra Singh',          designation: 'Operator',                   designationHindi: 'परिचालक' },
-  { id: 12, name: 'श्री सुशील कुमार',             nameEn: 'Shri Sushil Kumar',            designation: 'Night Watchman',             designationHindi: 'रात्रि चौकीदार' },
-  { id: 13, name: 'श्री अखिलेश सिंह नेगी',       nameEn: 'Shri Akhilesh Singh Negi',     designation: 'Attendant',                  designationHindi: 'अनुसेवक' },
-  { id: 14, name: 'श्री वेदकिशोर सिंह नेगी',     nameEn: 'Shri Vedkishor Singh Negi',    designation: 'Gardener',                   designationHindi: 'माली' },
-  { id: 15, name: 'श्री प्रशांत कुकरेती',         nameEn: 'Shri Prashant Kukreti',        designation: 'Book Binder & Lifter',       designationHindi: 'बुक बाइंडर और लिफ्टर' },
-  { id: 16, name: 'श्री धर्मेन्द्र सिंह',         nameEn: 'Shri Dharmendra Singh',        designation: 'Environment Friend',         designationHindi: 'पर्यावरण मित्र' },
+  { id: 1,  name: 'श्री महेंद्र सिंह बिष्ट',   nameEn: 'Shri Mahendra Singh Bisht',   designation: 'Administrative Officer',     designationHindi: 'प्रशासनिक अधिकारी',        photo: fp('mahendra.webp') },
+  { id: 2,  name: 'श्री मानेन्द्र सिंह बिष्ट', nameEn: 'Shri Manendra Singh Bisht',   designation: 'Chief Assistant',            designationHindi: 'मुख्य सहायक',               photo: fp('manendra.webp') },
+  { id: 3,  name: 'श्री संजय कुमार रतूड़ी',    nameEn: 'Shri Sanjay Kumar Raturi',    designation: 'Assistant Accountant',       designationHindi: 'सहायक लेखाकार',             photo: fp('sanjay.webp') },
+  { id: 4,  name: 'श्रीमती सीमा देवी',          nameEn: 'Shrimati Seema Devi',          designation: 'Assistant Librarian',        designationHindi: 'सहायक पुस्तकालय अध्यक्ष',  photo: fp('seema_devi.webp') },
+  { id: 5,  name: 'श्रीमती उर्वशी जुयाल',       nameEn: 'Shrimati Urvashi Juyal',       designation: 'Library Clerk',              designationHindi: 'पुस्तकालय लिपिक',           photo: null },
+  { id: 6,  name: 'श्री उपेन्द्र कुमार',         nameEn: 'Shri Upendra Kumar',           designation: 'Junior Clerk',               designationHindi: 'कनिष्ठ लिपिक',              photo: null },
+  { id: 7,  name: 'श्री अरविंद कुमार',           nameEn: 'Shri Arvind Kumar',            designation: 'Junior Assistant',           designationHindi: 'कनिष्ठ सहायक',              photo: null },
+  { id: 8,  name: 'श्री सुनील रावत',             nameEn: 'Shri Sunil Rawat',             designation: 'Computer Operator',          designationHindi: 'कंप्यूटर ऑपरेटर',          photo: fp('sunil.webp') },
+  { id: 9,  name: 'श्रीमती बीना देवी',           nameEn: 'Shrimati Bina Devi',           designation: 'Store Keeper',               designationHindi: 'स्टोर कीपर',                photo: fp('beena.webp') },
+  { id: 10, name: 'श्री सतीश कुमार नेगी',        nameEn: 'Shri Satish Kumar Negi',       designation: 'Electrician',                designationHindi: 'विधुतकार',                  photo: fp('satish.webp') },
+  { id: 11, name: 'श्री गजेंद्र सिंह',           nameEn: 'Shri Gajendra Singh',          designation: 'Operator',                   designationHindi: 'परिचालक',                   photo: null },
+  { id: 12, name: 'श्री सुशील कुमार',             nameEn: 'Shri Sushil Kumar',            designation: 'Night Watchman',             designationHindi: 'रात्रि चौकीदार',            photo: fp('shushil.webp') },
+  { id: 13, name: 'श्री अखिलेश सिंह नेगी',       nameEn: 'Shri Akhilesh Singh Negi',     designation: 'Attendant',                  designationHindi: 'अनुसेवक',                   photo: fp('Akhilesh.webp') },
+  { id: 14, name: 'श्री वेदकिशोर सिंह नेगी',     nameEn: 'Shri Vedkishor Singh Negi',    designation: 'Gardener',                   designationHindi: 'माली',                      photo: fp('vedkishor.webp') },
+  { id: 15, name: 'श्री प्रशांत कुकरेती',         nameEn: 'Shri Prashant Kukreti',        designation: 'Book Binder & Lifter',       designationHindi: 'बुक बाइंडर और लिफ्टर',     photo: null },
+  { id: 16, name: 'श्री धर्मेन्द्र सिंह',         nameEn: 'Shri Dharmendra Singh',        designation: 'Environment Friend',         designationHindi: 'पर्यावरण मित्र',            photo: null },
 ]
 
 // ─── Programs / Courses ───────────────────────────────────────────────────────

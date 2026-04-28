@@ -54,9 +54,20 @@ function FacultyCard({ member, index }) {
       } ${member.isPrincipal ? 'border-2 border-primary-300 bg-primary-50' : ''}`}
       style={{ transitionDelay: `${index * 0.06}s` }}
     >
-      {/* Avatar */}
-      <div className={`relative w-20 h-20 mx-auto mb-4`}>
-        <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${getAvatarBg(member.avatar)} flex items-center justify-center text-white text-xl font-bold shadow-md group-hover:shadow-[0_4px_14px_rgba(255,124,18,0.35)] transition-shadow duration-300`}>
+      {/* Avatar / Photo */}
+      <div className="relative w-20 h-20 mx-auto mb-4">
+        {member.photo ? (
+          <img
+            src={member.photo}
+            alt={member.nameEn}
+            className="w-20 h-20 rounded-full object-cover shadow-md group-hover:shadow-[0_4px_14px_rgba(255,124,18,0.35)] transition-shadow duration-300"
+            onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+          />
+        ) : null}
+        <div
+          className={`w-20 h-20 rounded-full bg-gradient-to-br ${getAvatarBg(member.avatar)} items-center justify-center text-white text-xl font-bold shadow-md group-hover:shadow-[0_4px_14px_rgba(255,124,18,0.35)] transition-shadow duration-300`}
+          style={{ display: member.photo ? 'none' : 'flex' }}
+        >
           {member.avatar}
         </div>
         {member.isPrincipal && (
@@ -99,7 +110,18 @@ function NonTeachingCard({ member, index }) {
       }`}
       style={{ transitionDelay: `${index * 0.04}s` }}
     >
-      <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${getAvatarBg(member.nameEn.split(' ').map(w => w[0]).join('').slice(0, 2))} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}>
+      {member.photo ? (
+        <img
+          src={member.photo}
+          alt={member.nameEn}
+          className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+          onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+        />
+      ) : null}
+      <div
+        className={`w-10 h-10 rounded-full bg-gradient-to-br ${getAvatarBg(member.nameEn.split(' ').map(w => w[0]).join('').slice(0, 2))} items-center justify-center text-white text-xs font-bold flex-shrink-0`}
+        style={{ display: member.photo ? 'none' : 'flex' }}
+      >
         {member.id}
       </div>
       <div className="flex-1 min-w-0">
