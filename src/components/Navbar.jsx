@@ -1,23 +1,112 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import {
-  FaBars, FaTimes, FaHome, FaInfoCircle, FaUsers, FaBook,
-  FaImages, FaPhone, FaExternalLinkAlt,
+  FaBars, FaTimes, FaExternalLinkAlt, FaChevronDown,
 } from 'react-icons/fa'
 import { collegeInfo } from '../data/collegeData'
 
-const navLinks = [
-  { to: '/',          label: 'Home',        labelHindi: 'होम',            icon: <FaHome /> },
-  { to: '/about',     label: 'About Us',    labelHindi: 'हमारे बारे में', icon: <FaInfoCircle /> },
-  { to: '/faculty',   label: 'Faculty',     labelHindi: 'संकाय',          icon: <FaUsers /> },
-  { to: '/programs',  label: 'Programs',    labelHindi: 'पाठ्यक्रम',     icon: <FaBook /> },
-  { to: '/gallery',   label: 'Gallery',     labelHindi: 'गैलरी',          icon: <FaImages /> },
-  { to: '/contact',   label: 'Contact',     labelHindi: 'संपर्क',         icon: <FaPhone /> },
+// ─── Nav config matching old website ─────────────────────────────────────────
+const navConfig = [
+  { label: 'Home', to: '/', exact: true },
+  {
+    label: 'Know More',
+    dropdown: [
+      { label: 'About Us',        to: '/about',   internal: true },
+      { label: 'Faculty & Staff', to: '/faculty', internal: true },
+      { label: 'Our Committee',   href: 'https://gdcbithyani.ac.in/commitee.php' },
+    ],
+  },
+  {
+    label: 'Our Program',
+    dropdown: [
+      { label: 'B.A. Programs',  to: '/programs', internal: true },
+      { label: 'B.Sc. Programs', to: '/programs', internal: true },
+      { label: 'Apply Online',   href: 'https://ukadmission.samarth.ac.in/' },
+    ],
+  },
+  {
+    label: 'Academics',
+    dropdown: [
+      { label: 'Library',             href: 'https://gdcbithyani.ac.in/Library.php' },
+      { label: 'Academic Calendar',   href: 'https://gdcbithyani.ac.in/calender.php' },
+      { label: 'Syllabus & Programs', to: '/programs', internal: true },
+      { label: 'SDSUV University',    href: 'https://www.sdsuv.ac.in/' },
+    ],
+  },
+  { label: 'NAAC & IQAC', href: 'http://www.naac.gov.in/' },
+  { label: 'NIRF / AISHE', href: 'http://aishe.nic.in/aishe/home' },
+  {
+    label: 'Activities',
+    dropdown: [
+      { label: 'NSS Unit',            to: '/about',   internal: true },
+      { label: 'Cultural Activities', to: '/gallery', internal: true },
+      { label: 'Sports',              to: '/gallery', internal: true },
+      { label: 'Events Gallery',      to: '/gallery', internal: true },
+    ],
+  },
+  {
+    label: 'Student Supports',
+    dropdown: [
+      { label: 'Apply Online (Samarth)',   href: 'https://ukadmission.samarth.ac.in/' },
+      { label: 'National Scholarships',    href: 'https://scholarships.gov.in/' },
+      { label: 'National Digital Library', href: 'https://ndl.iitkgp.ac.in/' },
+      { label: 'UGC India',                href: 'https://www.ugc.gov.in/' },
+    ],
+  },
+  { label: 'Gallery', to: '/gallery' },
+  {
+    label: 'Downloads',
+    dropdown: [
+      { label: 'College Prospectus',   href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/syllabus%20%20pdf/college%20handbook%20prospectus%20pdf.pdf' },
+      { label: 'Merit List – B.A. I',  href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/News/First%20Marit%20List%20BA%20I%20sem%20.pdf' },
+      { label: 'Fee Structure 2025–26', href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/News%20paper/First%20Mertit%20list%20BA%20I%20sem.pdf' },
+    ],
+  },
+  { label: 'Contact', to: '/contact' },
 ]
 
+// ─── Desktop hover-dropdown ───────────────────────────────────────────────────
+function DesktopDropdown({ item }) {
+  return (
+    <div className="relative group h-full flex items-center">
+      <button className="flex items-center gap-0.5 px-1.5 xl:px-2 py-1.5 text-[0.65rem] xl:text-[0.7rem] font-semibold rounded transition-colors text-primary-100 hover:bg-white/10 hover:text-white whitespace-nowrap group-hover:bg-white/10 group-hover:text-white uppercase tracking-wide">
+        {item.label}
+        <FaChevronDown className="text-[7px] opacity-70 group-hover:rotate-180 transition-transform duration-200 flex-shrink-0" />
+      </button>
+      {/* Panel */}
+      <div className="absolute top-full left-0 mt-0 min-w-[200px] bg-white rounded-b-lg rounded-tr-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-[100] py-1">
+        {item.dropdown.map((sub, j) =>
+          sub.internal ? (
+            <Link
+              key={j}
+              to={sub.to}
+              className="block px-4 py-2 text-xs text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
+            >
+              {sub.label}
+            </Link>
+          ) : (
+            <a
+              key={j}
+              href={sub.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between px-4 py-2 text-xs text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors gap-2"
+            >
+              {sub.label}
+              <FaExternalLinkAlt className="text-[8px] opacity-40 flex-shrink-0" />
+            </a>
+          )
+        )}
+      </div>
+    </div>
+  )
+}
+
+// ─── Main Navbar ─────────────────────────────────────────────────────────────
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen,      setMenuOpen]      = useState(false)
+  const [openAccordion, setOpenAccordion] = useState(null)
+  const [scrolled,      setScrolled]      = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -26,76 +115,85 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => { setMenuOpen(false) }, [location.pathname])
+  useEffect(() => {
+    setMenuOpen(false)
+    setOpenAccordion(null)
+  }, [location.pathname])
+
+  const toggleAccordion = (i) => setOpenAccordion(o => o === i ? null : i)
 
   return (
-    <header className={`sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? 'shadow-lg' : 'shadow-sm'}`} style={{ overflow: 'hidden' }}>
+    <header className={`sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? 'shadow-lg' : 'shadow-sm'}`}>
 
       {/* ── Row 1: Navigation ── */}
       <div className="bg-primary-800">
-        <nav className="container mx-auto px-3 sm:px-4">
-          <div className="flex items-center justify-between h-10 sm:h-11">
+        <nav className="w-full px-2 sm:px-3">
+          <div className="flex items-center h-10 sm:h-11 gap-1">
 
-            {/* Desktop nav links (lg+) */}
-            <div className="hidden lg:flex items-center gap-0.5">
-              {navLinks.map(link => (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  end={link.to === '/'}
-                  className={({ isActive }) =>
-                    `px-3 py-1.5 text-sm font-medium rounded transition-colors duration-150 ${
-                      isActive
-                        ? 'bg-white/20 text-white font-semibold'
-                        : 'text-primary-100 hover:bg-white/10 hover:text-white'
-                    }`
-                  }
-                >
-                  {link.label}
-                </NavLink>
-              ))}
+            {/* Desktop nav — all items with dropdowns (lg+) */}
+            <div className="hidden lg:flex items-center flex-1 h-full overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
+              {navConfig.map((item, i) => {
+                if (item.dropdown) return <DesktopDropdown key={i} item={item} />
+                if (item.to) return (
+                  <NavLink
+                    key={i}
+                    to={item.to}
+                    end={item.exact}
+                    className={({ isActive }) =>
+                      `px-1.5 xl:px-2 py-1.5 text-[0.65rem] xl:text-[0.7rem] font-semibold rounded transition-colors whitespace-nowrap uppercase tracking-wide ${
+                        isActive
+                          ? 'bg-white/20 text-white'
+                          : 'text-primary-100 hover:bg-white/10 hover:text-white'
+                      }`
+                    }
+                  >{item.label}</NavLink>
+                )
+                return (
+                  <a
+                    key={i}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-1.5 xl:px-2 py-1.5 text-[0.65rem] xl:text-[0.7rem] font-semibold rounded transition-colors whitespace-nowrap uppercase tracking-wide text-primary-100 hover:bg-white/10 hover:text-white"
+                  >{item.label}</a>
+                )
+              })}
             </div>
 
-            {/* Mobile/tablet shortcut links (< lg) */}
-            <div className="flex lg:hidden items-center gap-0.5">
+            {/* Mobile shortcut links (< lg) */}
+            <div className="flex lg:hidden items-center gap-0.5 flex-1">
               {[
-                { to: '/', label: 'Home' },
-                { to: '/about', label: 'About' },
-                { to: '/faculty', label: 'Faculty' },
+                { to: '/',         label: 'Home' },
+                { to: '/about',    label: 'About' },
                 { to: '/programs', label: 'Programs' },
+                { to: '/gallery',  label: 'Gallery' },
               ].map(link => (
                 <NavLink
                   key={link.to}
                   to={link.to}
                   end={link.to === '/'}
                   className={({ isActive }) =>
-                    `px-2 sm:px-3 py-1 text-[0.7rem] sm:text-xs font-medium rounded transition-colors duration-150 ${
+                    `px-2 sm:px-3 py-1 text-[0.68rem] sm:text-xs font-semibold rounded transition-colors ${
                       isActive
-                        ? 'bg-white/20 text-white font-semibold'
+                        ? 'bg-white/20 text-white'
                         : 'text-primary-100 hover:bg-white/10 hover:text-white'
                     }`
                   }
-                >
-                  {link.label}
-                </NavLink>
+                >{link.label}</NavLink>
               ))}
             </div>
 
-            {/* Right: contact info + Apply + Hamburger */}
-            <div className="flex items-center gap-2 sm:gap-3 ml-auto">
-              <a href={`mailto:${collegeInfo.email}`}
-                 className="hidden xl:flex items-center gap-1 text-primary-200 text-xs hover:text-white transition-colors">
-                ✉ {collegeInfo.email}
-              </a>
+            {/* Right: phone (xl+) + Apply + Hamburger */}
+            <div className="flex items-center gap-2 ml-auto flex-shrink-0">
               <a href={`tel:${collegeInfo.phones[0]}`}
-                 className="hidden lg:flex items-center gap-1 text-primary-200 text-xs hover:text-white transition-colors">
+                 className="hidden xl:flex items-center gap-1 text-primary-200 text-xs hover:text-white transition-colors">
                 📞 {collegeInfo.phones[0]}
               </a>
               <a
                 href={collegeInfo.applyLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 bg-saffron-500 hover:bg-saffron-400 text-white px-3 py-1 rounded text-xs font-semibold transition-colors"
+                className="flex items-center gap-1 bg-saffron-500 hover:bg-saffron-400 text-white px-3 py-1 rounded text-xs font-semibold transition-colors whitespace-nowrap"
               >
                 Apply <FaExternalLinkAlt className="text-[9px]" />
               </a>
@@ -111,32 +209,82 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* ── Mobile Dropdown ── */}
-        <div className={`lg:hidden bg-primary-900 overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-screen' : 'max-h-0'}`}>
-          <div className="container mx-auto px-3 py-2 flex flex-col gap-0.5">
-            {navLinks.map(link => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                end={link.to === '/'}
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-2.5 rounded text-sm font-medium transition-colors ${
-                    isActive
-                      ? 'bg-white/20 text-white font-semibold'
-                      : 'text-primary-100 hover:bg-white/10 hover:text-white'
-                  }`
-                }
-              >
-                <span>{link.icon}</span>
-                <span>{link.label}</span>
-                <span className="ml-auto text-xs opacity-50 font-hindi">{link.labelHindi}</span>
-              </NavLink>
-            ))}
+        {/* ── Mobile Full Menu (< lg) ── */}
+        <div className={`lg:hidden bg-primary-900 transition-all duration-300 overflow-hidden ${menuOpen ? 'max-h-[80vh] overflow-y-auto' : 'max-h-0'}`}>
+          <div className="px-3 py-2 flex flex-col gap-0.5">
+            {navConfig.map((item, i) => {
+              if (!item.dropdown) {
+                if (item.to) return (
+                  <NavLink
+                    key={i}
+                    to={item.to}
+                    end={item.exact}
+                    className={({ isActive }) =>
+                      `flex items-center px-4 py-2.5 rounded text-sm font-medium transition-colors ${
+                        isActive
+                          ? 'bg-white/20 text-white font-semibold'
+                          : 'text-primary-100 hover:bg-white/10 hover:text-white'
+                      }`
+                    }
+                  >{item.label}</NavLink>
+                )
+                return (
+                  <a
+                    key={i}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between px-4 py-2.5 rounded text-sm font-medium text-primary-100 hover:bg-white/10 hover:text-white transition-colors"
+                  >
+                    {item.label}
+                    <FaExternalLinkAlt className="text-[9px] opacity-50" />
+                  </a>
+                )
+              }
+              // Accordion dropdown
+              const isOpen = openAccordion === i
+              return (
+                <div key={i}>
+                  <button
+                    onClick={() => toggleAccordion(i)}
+                    className="w-full flex items-center justify-between px-4 py-2.5 rounded text-sm font-medium text-primary-100 hover:bg-white/10 hover:text-white transition-colors"
+                  >
+                    {item.label}
+                    <FaChevronDown className={`text-xs opacity-70 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  <div className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-60' : 'max-h-0'}`}>
+                    <div className="ml-4 border-l border-white/10 pl-3 py-1 flex flex-col gap-0.5">
+                      {item.dropdown.map((sub, j) =>
+                        sub.internal ? (
+                          <Link
+                            key={j}
+                            to={sub.to}
+                            className="block px-3 py-2 rounded text-xs text-primary-200 hover:bg-white/10 hover:text-white transition-colors"
+                          >{sub.label}</Link>
+                        ) : (
+                          <a
+                            key={j}
+                            href={sub.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between px-3 py-2 rounded text-xs text-primary-200 hover:bg-white/10 hover:text-white transition-colors"
+                          >
+                            {sub.label}
+                            <FaExternalLinkAlt className="text-[8px] opacity-50 flex-shrink-0" />
+                          </a>
+                        )
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+            {/* Apply CTA */}
             <a
               href={collegeInfo.applyLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 mx-2 my-1.5 py-2.5 bg-saffron-500 text-white rounded font-semibold text-sm hover:bg-saffron-600 transition-colors"
+              className="flex items-center justify-center gap-2 mx-2 my-2 py-2.5 bg-saffron-500 text-white rounded font-semibold text-sm hover:bg-saffron-600 transition-colors"
             >
               Apply Online – Admission 2025–26
             </a>
