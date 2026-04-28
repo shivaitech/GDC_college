@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import {
-  FaBars, FaTimes, FaExternalLinkAlt, FaChevronDown,
+  FaBars, FaTimes, FaExternalLinkAlt, FaChevronDown, FaGlobe,
 } from 'react-icons/fa'
 import { collegeInfo } from '../data/collegeData'
 
@@ -119,6 +119,30 @@ function DesktopDropdown({ item }) {
   )
 }
 
+// ─── Language Toggle ──────────────────────────────────────────────────────────
+function LangToggle() {
+  const [lang, setLang] = useState(() =>
+    (typeof window !== 'undefined' && window._gdcGetLang) ? window._gdcGetLang() : 'hi'
+  )
+
+  const toggle = () => {
+    const next = lang === 'hi' ? 'en' : 'hi'
+    setLang(next)
+    if (window._gdcSetLang) window._gdcSetLang(next)
+  }
+
+  return (
+    <button
+      onClick={toggle}
+      title={lang === 'hi' ? 'Switch to English' : 'हिंदी में देखें'}
+      className="flex items-center gap-1 px-2 py-1 rounded border border-white/30 text-[0.68rem] font-bold text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+    >
+      <FaGlobe className="text-[9px] opacity-80" />
+      {lang === 'hi' ? 'EN' : 'हिंदी'}
+    </button>
+  )
+}
+
 // ─── Main Navbar ─────────────────────────────────────────────────────────────
 export default function Navbar() {
   const [menuOpen,      setMenuOpen]      = useState(false)
@@ -200,12 +224,13 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Right: phone (xl+) + Apply + Hamburger */}
+            {/* Right: phone (xl+) + Lang toggle + Apply + Hamburger */}
             <div className="flex items-center gap-2 ml-auto flex-shrink-0">
               <a href={`tel:${collegeInfo.phones[0]}`}
                  className="hidden xl:flex items-center gap-1 text-primary-200 text-xs hover:text-white transition-colors">
                 📞 {collegeInfo.phones[0]}
               </a>
+              <LangToggle />
               <a
                 href={collegeInfo.applyLink}
                 target="_blank"
@@ -312,23 +337,38 @@ export default function Navbar() {
       {/* ── Row 2: Institutional Identity ── */}
       <div className="bg-white border-b border-gray-200 w-full overflow-hidden">
 
-        {/* SCROLLED: compact single line — logo left + name right */}
+        {/* SCROLLED: compact single line — full width, no whitespace */}
         <div className={`transition-all duration-300 overflow-hidden ${scrolled ? 'max-h-12 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-          <div className="w-full max-w-screen-xl mx-auto px-3 sm:px-6 py-1.5 flex items-center gap-2">
-            <Link to="/" className="flex-shrink-0">
-              <img src="/logo.png" alt="GDC Bithyani"
-                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover" />
-            </Link>
-            <p className="font-hindi font-bold text-red-600 leading-tight truncate"
-               style={{ fontSize: 'clamp(0.6rem, 2vw, 0.85rem)' }}>
-              महायोगी गुरु गोरखनाथ राजकीय महाविद्यालय बिथ्याणी, यमकेश्वर, पौड़ी गढ़वाल
-            </p>
+          <div className="w-full px-3 sm:px-4 py-1.5 flex items-center justify-between gap-3">
+            {/* Left: logo + name */}
+            <div className="flex items-center gap-2 min-w-0">
+              <Link to="/" className="flex-shrink-0">
+                <img src="/logo.png" alt="GDC Bithyani"
+                  className="w-8 h-8 rounded-full object-cover" />
+              </Link>
+              <p className="font-hindi font-bold text-red-600 leading-tight truncate"
+                 style={{ fontSize: 'clamp(0.62rem, 1.4vw, 0.88rem)' }}>
+                महायोगी गुरु गोरखनाथ राजकीय महाविद्यालय बिथ्याणी, यमकेश्वर, पौड़ी गढ़वाल
+              </p>
+            </div>
+            {/* Right: affiliation (desktop only) */}
+            <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
+              <img
+                src="https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/Sri_Dev_Suman_Uttarakhand_University_Logo.png"
+                alt="SDSUV"
+                className="w-7 h-7 object-contain"
+                onError={e => { e.target.style.display = 'none' }}
+              />
+              <p className="text-primary-800 font-semibold text-[0.6rem] leading-tight">
+                Affiliated to Sri Dev Suman Uttarakhand University
+              </p>
+            </div>
           </div>
         </div>
 
         {/* NOT SCROLLED: full identity block */}
         <div className={`transition-all duration-300 overflow-hidden ${scrolled ? 'max-h-0 opacity-0 pointer-events-none' : 'max-h-60 opacity-100'}`}>
-          <div className="w-full max-w-screen-xl mx-auto px-3 sm:px-6 py-2 sm:py-3">
+          <div className="w-full px-3 sm:px-4 py-2 sm:py-3">
 
             {/* ── Mobile (< md): stacked center ── */}
             <div className="flex md:hidden flex-col items-center text-center gap-1">

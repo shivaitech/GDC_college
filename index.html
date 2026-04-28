@@ -34,7 +34,43 @@
     </script>
   </head>
   <body>
+    <!-- Google Translate hidden element -->
+    <div id="google_translate_element" style="display:none"></div>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Google Translate Widget -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'hi,en',
+          autoDisplay: false,
+          multilanguagePage: false
+        }, 'google_translate_element');
+
+        // Auto-translate to Hindi on first visit (default language = Hindi)
+        setTimeout(function () {
+          var savedLang = localStorage.getItem('gdc_lang') || 'hi';
+          window._gdcSetLang(savedLang);
+        }, 800);
+      }
+
+      // Global helper used by React Navbar toggle
+      window._gdcSetLang = function (lang) {
+        var select = document.querySelector('.goog-te-combo');
+        if (select) {
+          select.value = lang;
+          select.dispatchEvent(new Event('change'));
+          localStorage.setItem('gdc_lang', lang);
+        }
+      };
+
+      window._gdcGetLang = function () {
+        return localStorage.getItem('gdc_lang') || 'hi';
+      };
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>
