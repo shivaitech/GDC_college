@@ -5,68 +5,77 @@ import {
 } from 'react-icons/fa'
 import { collegeInfo } from '../data/collegeData'
 
-// ─── Nav config — labels in Hindi (notranslate) ───────────────────────────────
+// ─── Nav config — Hindi + English labels ─────────────────────────────────────
 const navConfig = [
-  { label: 'मुख्य पृष्ठ', to: '/', exact: true },
+  { label: 'मुख्य पृष्ठ',       labelEn: 'Home',             to: '/', exact: true },
   {
-    label: 'अधिक जानें',
+    label:   'अधिक जानें',
+    labelEn: 'Know More',
     dropdown: [
-      { label: 'हमारे बारे में',    to: '/about',   internal: true },
-      { label: 'संकाय एवं स्टाफ',  to: '/faculty', internal: true },
-      { label: 'हमारी समिति',       href: 'https://gdcbithyani.ac.in/commitee.php' },
+      { label: 'हमारे बारे में',    labelEn: 'About Us',         to: '/about',   internal: true },
+      { label: 'संकाय एवं स्टाफ',  labelEn: 'Faculty & Staff',  to: '/faculty', internal: true },
+      { label: 'हमारी समिति',       labelEn: 'Our Committee',    href: 'https://gdcbithyani.ac.in/commitee.php' },
     ],
   },
   {
-    label: 'हमारे पाठ्यक्रम',
+    label:   'हमारे पाठ्यक्रम',
+    labelEn: 'Our Program',
     dropdown: [
-      { label: 'बी.ए. कार्यक्रम',   to: '/programs', internal: true },
-      { label: 'बी.एससी. कार्यक्रम', to: '/programs', internal: true },
-      { label: 'ऑनलाइन आवेदन',       href: 'https://ukadmission.samarth.ac.in/' },
+      { label: 'बी.ए. कार्यक्रम',       labelEn: 'B.A. Programs',   to: '/programs', internal: true },
+      { label: 'बी.एससी. कार्यक्रम',    labelEn: 'B.Sc. Programs',  to: '/programs', internal: true },
+      { label: 'ऑनलाइन आवेदन',           labelEn: 'Apply Online',     href: 'https://ukadmission.samarth.ac.in/' },
     ],
   },
   {
-    label: 'शैक्षणिक',
+    label:   'शैक्षणिक',
+    labelEn: 'Academics',
     dropdown: [
-      { label: 'पुस्तकालय',           href: 'https://gdcbithyani.ac.in/Library.php' },
-      { label: 'शैक्षणिक कैलेंडर',   href: 'https://gdcbithyani.ac.in/calender.php' },
-      { label: 'पाठ्यक्रम एवं कार्यक्रम', to: '/programs', internal: true },
-      { label: 'SDSUV विश्वविद्यालय', href: 'https://www.sdsuv.ac.in/' },
+      { label: 'पुस्तकालय',                   labelEn: 'Library',               href: 'https://gdcbithyani.ac.in/Library.php' },
+      { label: 'शैक्षणिक कैलेंडर',            labelEn: 'Academic Calendar',     href: 'https://gdcbithyani.ac.in/calender.php' },
+      { label: 'पाठ्यक्रम एवं कार्यक्रम',    labelEn: 'Syllabus & Programs',   to: '/programs', internal: true },
+      { label: 'SDSUV विश्वविद्यालय',          labelEn: 'SDSUV University',       href: 'https://www.sdsuv.ac.in/' },
     ],
   },
-  { label: 'NAAC & IQAC', href: 'http://www.naac.gov.in/' },
-  { label: 'NIRF / AISHE', href: 'http://aishe.nic.in/aishe/home' },
+  { label: 'NAAC & IQAC',   labelEn: 'NAAC & IQAC',   href: 'http://www.naac.gov.in/' },
+  { label: 'NIRF / AISHE',  labelEn: 'NIRF / AISHE',  href: 'http://aishe.nic.in/aishe/home' },
   {
-    label: 'गतिविधियाँ',
+    label:   'गतिविधियाँ',
+    labelEn: 'Activities',
     dropdown: [
-      { label: 'एनएसएस इकाई',       to: '/about',   internal: true },
-      { label: 'सांस्कृतिक गतिविधियाँ', to: '/gallery', internal: true },
-      { label: 'खेलकूद',              to: '/gallery', internal: true },
-      { label: 'इवेंट गैलरी',         to: '/gallery', internal: true },
+      { label: 'एनएसएस इकाई',              labelEn: 'NSS Unit',              to: '/about',   internal: true },
+      { label: 'सांस्कृतिक गतिविधियाँ',   labelEn: 'Cultural Activities',   to: '/gallery', internal: true },
+      { label: 'खेलकूद',                    labelEn: 'Sports',                to: '/gallery', internal: true },
+      { label: 'इवेंट गैलरी',              labelEn: 'Events Gallery',        to: '/gallery', internal: true },
     ],
   },
   {
-    label: 'छात्र सहायता',
+    label:   'छात्र सहायता',
+    labelEn: 'Student Supports',
     dropdown: [
-      { label: 'ऑनलाइन आवेदन (समर्थ)', href: 'https://ukadmission.samarth.ac.in/' },
-      { label: 'राष्ट्रीय छात्रवृत्ति',  href: 'https://scholarships.gov.in/' },
-      { label: 'राष्ट्रीय डिजिटल पुस्तकालय', href: 'https://ndl.iitkgp.ac.in/' },
-      { label: 'UGC India',               href: 'https://www.ugc.gov.in/' },
+      { label: 'ऑनलाइन आवेदन (समर्थ)',          labelEn: 'Apply Online (Samarth)',    href: 'https://ukadmission.samarth.ac.in/' },
+      { label: 'राष्ट्रीय छात्रवृत्ति',         labelEn: 'National Scholarships',     href: 'https://scholarships.gov.in/' },
+      { label: 'राष्ट्रीय डिजिटल पुस्तकालय',   labelEn: 'National Digital Library',  href: 'https://ndl.iitkgp.ac.in/' },
+      { label: 'UGC India',                       labelEn: 'UGC India',                 href: 'https://www.ugc.gov.in/' },
     ],
   },
-  { label: 'गैलरी', to: '/gallery' },
+  { label: 'गैलरी',        labelEn: 'Gallery',   to: '/gallery' },
   {
-    label: 'डाउनलोड',
+    label:   'डाउनलोड',
+    labelEn: 'Downloads',
     dropdown: [
-      { label: 'महाविद्यालय प्रॉस्पेक्टस', href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/syllabus%20%20pdf/college%20handbook%20prospectus%20pdf.pdf' },
-      { label: 'मेरिट लिस्ट – बी.ए. प्रथम', href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/News/First%20Marit%20List%20BA%20I%20sem%20.pdf' },
-      { label: 'शुल्क संरचना 2025–26',      href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/News%20paper/First%20Mertit%20list%20BA%20I%20sem.pdf' },
+      { label: 'महाविद्यालय प्रॉस्पेक्टस',  labelEn: 'College Prospectus',    href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/syllabus%20%20pdf/college%20handbook%20prospectus%20pdf.pdf' },
+      { label: 'मेरिट लिस्ट – बी.ए. प्रथम', labelEn: 'Merit List – B.A. I',   href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/News/First%20Marit%20List%20BA%20I%20sem%20.pdf' },
+      { label: 'शुल्क संरचना 2025–26',       labelEn: 'Fee Structure 2025–26', href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/News%20paper/First%20Mertit%20list%20BA%20I%20sem.pdf' },
     ],
   },
-  { label: 'संपर्क करें', to: '/contact' },
+  { label: 'संपर्क करें',  labelEn: 'Contact',   to: '/contact' },
 ]
 
+// helper to pick label based on lang
+const lbl = (item, lang) => lang === 'en' ? (item.labelEn || item.label) : item.label
+
 // ─── Desktop hover-dropdown (JS-controlled so overflow-x never clips panel) ──
-function DesktopDropdown({ item }) {
+function DesktopDropdown({ item, lang }) {
   const [open, setOpen] = useState(false)
   let closeTimer = null
 
@@ -84,7 +93,7 @@ function DesktopDropdown({ item }) {
           open ? 'bg-white/20 text-white' : 'text-primary-100 hover:bg-white/10 hover:text-white'
         }`}
       >
-        {item.label}
+        {lbl(item, lang)}
         <FaChevronDown className={`text-[7px] opacity-70 transition-transform duration-200 flex-shrink-0 ${open ? 'rotate-180' : ''}`} />
       </button>
       {/* Panel — rendered only when open so it never affects layout */}
@@ -98,7 +107,7 @@ function DesktopDropdown({ item }) {
                 className="block px-4 py-2.5 text-xs text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
                 onClick={() => setOpen(false)}
               >
-                {sub.label}
+                {lbl(sub, lang)}
               </Link>
             ) : (
               <a
@@ -108,7 +117,7 @@ function DesktopDropdown({ item }) {
                 rel="noopener noreferrer"
                 className="flex items-center justify-between px-4 py-2.5 text-xs text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors gap-2"
               >
-                {sub.label}
+                {lbl(sub, lang)}
                 <FaExternalLinkAlt className="text-[8px] opacity-40 flex-shrink-0" />
               </a>
             )
@@ -120,20 +129,10 @@ function DesktopDropdown({ item }) {
 }
 
 // ─── Language Toggle ──────────────────────────────────────────────────────────
-function LangToggle() {
-  const [lang, setLang] = useState(() =>
-    (typeof window !== 'undefined' && window._gdcGetLang) ? window._gdcGetLang() : 'hi'
-  )
-
-  const toggle = () => {
-    const next = lang === 'hi' ? 'en' : 'hi'
-    setLang(next)
-    if (window._gdcSetLang) window._gdcSetLang(next)
-  }
-
+function LangToggle({ lang, onToggle }) {
   return (
     <button
-      onClick={toggle}
+      onClick={onToggle}
       title={lang === 'hi' ? 'Switch to English' : 'हिंदी में देखें'}
       className="flex items-center gap-1 px-2 py-1 rounded border border-white/30 text-[0.68rem] font-bold text-white hover:bg-white/10 transition-colors whitespace-nowrap"
     >
@@ -148,7 +147,16 @@ export default function Navbar() {
   const [menuOpen,      setMenuOpen]      = useState(false)
   const [openAccordion, setOpenAccordion] = useState(null)
   const [scrolled,      setScrolled]      = useState(false)
+  const [lang,          setLang]          = useState(() =>
+    (typeof window !== 'undefined' && window._gdcGetLang) ? window._gdcGetLang() : 'hi'
+  )
   const location = useLocation()
+
+  const toggleLang = () => {
+    const next = lang === 'hi' ? 'en' : 'hi'
+    setLang(next)
+    if (window._gdcSetLang) window._gdcSetLang(next)
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -174,7 +182,7 @@ export default function Navbar() {
             {/* Desktop nav — all items with dropdowns (lg+) */}
             <div className="hidden lg:flex items-center flex-1 h-full">
               {navConfig.map((item, i) => {
-                if (item.dropdown) return <DesktopDropdown key={i} item={item} />
+                if (item.dropdown) return <DesktopDropdown key={i} item={item} lang={lang} />
                 if (item.to) return (
                   <NavLink
                     key={i}
@@ -187,7 +195,7 @@ export default function Navbar() {
                           : 'text-primary-100 hover:bg-white/10 hover:text-white'
                       }`
                     }
-                  >{item.label}</NavLink>
+                  >{lbl(item, lang)}</NavLink>
                 )
                 return (
                   <a
@@ -196,7 +204,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-1.5 xl:px-2 py-1.5 text-[0.65rem] xl:text-[0.7rem] font-semibold rounded transition-colors whitespace-nowrap uppercase tracking-wide text-primary-100 hover:bg-white/10 hover:text-white"
-                  >{item.label}</a>
+                  >{lbl(item, lang)}</a>
                 )
               })}
             </div>
@@ -230,7 +238,7 @@ export default function Navbar() {
                  className="hidden xl:flex items-center gap-1 text-primary-200 text-xs hover:text-white transition-colors">
                 📞 {collegeInfo.phones[0]}
               </a>
-              <LangToggle />
+              <LangToggle lang={lang} onToggle={toggleLang} />
               <a
                 href={collegeInfo.applyLink}
                 target="_blank"
@@ -268,7 +276,7 @@ export default function Navbar() {
                           : 'text-primary-100 hover:bg-white/10 hover:text-white'
                       }`
                     }
-                  >{item.label}</NavLink>
+                  >{lbl(item, lang)}</NavLink>
                 )
                 return (
                   <a
@@ -278,7 +286,7 @@ export default function Navbar() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-between px-4 py-2.5 rounded text-sm font-medium text-primary-100 hover:bg-white/10 hover:text-white transition-colors"
                   >
-                    {item.label}
+                    {lbl(item, lang)}
                     <FaExternalLinkAlt className="text-[9px] opacity-50" />
                   </a>
                 )
@@ -291,7 +299,7 @@ export default function Navbar() {
                     onClick={() => toggleAccordion(i)}
                     className="w-full flex items-center justify-between px-4 py-2.5 rounded text-sm font-medium text-primary-100 hover:bg-white/10 hover:text-white transition-colors"
                   >
-                    {item.label}
+                    {lbl(item, lang)}
                     <FaChevronDown className={`text-xs opacity-70 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
                   <div className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-60' : 'max-h-0'}`}>
@@ -302,7 +310,7 @@ export default function Navbar() {
                             key={j}
                             to={sub.to}
                             className="block px-3 py-2 rounded text-xs text-primary-200 hover:bg-white/10 hover:text-white transition-colors"
-                          >{sub.label}</Link>
+                          >{lbl(sub, lang)}</Link>
                         ) : (
                           <a
                             key={j}
@@ -311,7 +319,7 @@ export default function Navbar() {
                             rel="noopener noreferrer"
                             className="flex items-center justify-between px-3 py-2 rounded text-xs text-primary-200 hover:bg-white/10 hover:text-white transition-colors"
                           >
-                            {sub.label}
+                            {lbl(sub, lang)}
                             <FaExternalLinkAlt className="text-[8px] opacity-50 flex-shrink-0" />
                           </a>
                         )
