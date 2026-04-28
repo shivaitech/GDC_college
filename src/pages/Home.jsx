@@ -18,7 +18,13 @@ const programMeta = {
   4: { badge: 'Popular',   badgeColor: '#2563eb', badgeText: '#fff',    image: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=500&q=80' },
   5: { badge: 'In Demand', badgeColor: '#2563eb', badgeText: '#fff',    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500&q=80' },
   6: { badge: 'Popular',   badgeColor: '#dc2626', badgeText: '#fff',    image: 'https://images.unsplash.com/photo-1461360370896-22ded9ba4b55?w=500&q=80' },
-  7: { badge: 'New',       badgeColor: '#7c3aed', badgeText: '#fff',    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&q=80' },
+  7: { badge: 'Popular',   badgeColor: '#7c3aed', badgeText: '#fff',    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&q=80' },
+  8: { badge: 'Trending',  badgeColor: '#0284c7', badgeText: '#fff',    image: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=500&q=80' },
+  9: { badge: 'Science',   badgeColor: '#f97316', badgeText: '#fff',    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=500&q=80' },
+  10: { badge: 'STEM',     badgeColor: '#2563eb', badgeText: '#fff',    image: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=500&q=80' },
+  11: { badge: 'Life Sci', badgeColor: '#f97316', badgeText: '#fff',    image: 'https://images.unsplash.com/photo-1530210124550-912dc1381cb8?w=500&q=80' },
+  12: { badge: 'Life Sci', badgeColor: '#0284c7', badgeText: '#fff',    image: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=500&q=80' },
+  13: { badge: 'Tech',     badgeColor: '#2563eb', badgeText: '#fff',    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&q=80' },
 }
 import {
   heroSlides, stats, programs, facilities, importantLinks,
@@ -479,10 +485,10 @@ function ProgramsSection() {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="badge bg-primary-100 text-primary-700 mb-3">Our Programs</span>
-          <h2 className="section-title">Bachelor of Arts (B.A.)</h2>
+          <h2 className="section-title">B.A. &amp; B.Sc. Programs</h2>
           <div className="section-divider"></div>
           <p className="section-subtitle mx-auto mt-3">
-            6-Semester B.A. programs across 7 departments — empowering students with knowledge,
+            6-Semester programs across 13 departments — B.A. (Arts) &amp; B.Sc. (Science) — empowering students with knowledge,
             critical thinking, and cultural understanding.
           </p>
         </div>
@@ -497,8 +503,8 @@ function ProgramsSection() {
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
               scrollSnapType: 'x mandatory',
-              paddingLeft: 'max(1rem, calc(50% - 140px))',
-              paddingRight: 'max(1rem, calc(50% - 140px))',
+              paddingLeft: '1rem',
+              paddingRight: '1rem',
             }}
           >
             {programs.map(prog => {
@@ -531,7 +537,7 @@ function ProgramsSection() {
                   </div>
                   {/* Body */}
                   <div className="flex flex-col flex-1 p-5 pb-4">
-                    <h3 className="font-bold text-gray-900 text-[15px] leading-snug min-h-[2.8rem] mb-1">B.A. in {prog.departmentEn}</h3>
+                    <h3 className="font-bold text-gray-900 text-[15px] leading-snug min-h-[2.8rem] mb-1">{prog.course} in {prog.departmentEn}</h3>
                     <p className="text-xs text-gray-400 font-hindi mb-4">{prog.department}</p>
                     <div className="flex items-center gap-4 text-[13px] text-gray-500 mt-auto mb-4">
                       <span className="flex items-center gap-1.5"><FaClock className="text-gray-400 text-xs flex-shrink-0" />{prog.duration}</span>
@@ -541,7 +547,7 @@ function ProgramsSection() {
                       href={collegeInfo.applyLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#0f172a] hover:bg-primary-800 text-white text-[13px] font-semibold rounded-xl transition-colors duration-200 group/btn"
+                      className="flex items-center justify-center gap-2 w-full py-2.5 bg-primary-700 hover:bg-primary-800 text-white text-[13px] font-semibold rounded-xl transition-colors duration-200 group/btn"
                     >
                       Enroll For Course
                       <FaArrowRight className="text-[10px] transition-transform duration-200 group-hover/btn:translate-x-0.5" />

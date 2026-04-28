@@ -9,52 +9,88 @@ import { programs, collegeInfo } from '../data/collegeData'
 const programMeta = {
   1: {
     badge: 'Trending', badgeColor: '#f59e0b', badgeText: '#78350f',
-    type: 'UG', tags: ['Trending', 'Arts & Humanities'], fee: 'Govt. Rates',
+    type: 'B.A.', tags: ['Trending', 'Arts & Humanities'], fee: 'Govt. Rates',
     image: 'https://images.unsplash.com/photo-1550399105-c4db5fb85c18?w=500&q=80',
     collaboration: 'Sri Dev Suman University',
   },
   2: {
     badge: 'Trending', badgeColor: '#f59e0b', badgeText: '#78350f',
-    type: 'UG', tags: ['Trending', 'Arts & Humanities'], fee: 'Govt. Rates',
+    type: 'B.A.', tags: ['Trending', 'Arts & Humanities'], fee: 'Govt. Rates',
     image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&q=80',
     collaboration: 'Sri Dev Suman University',
   },
   3: {
     badge: 'Heritage', badgeColor: '#d97706', badgeText: '#fff',
-    type: 'UG', tags: ['Arts & Humanities'], fee: 'Govt. Rates',
+    type: 'B.A.', tags: ['Arts & Humanities'], fee: 'Govt. Rates',
     image: 'https://images.unsplash.com/photo-1545569289-e2e9bc3c0677?w=500&q=80',
     collaboration: 'Sri Dev Suman University',
   },
   4: {
     badge: 'Popular', badgeColor: '#2563eb', badgeText: '#fff',
-    type: 'UG', tags: ['Management', 'Social Sciences'], fee: 'Govt. Rates',
+    type: 'B.A.', tags: ['Social Sciences'], fee: 'Govt. Rates',
     image: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=500&q=80',
     collaboration: 'Sri Dev Suman University',
   },
   5: {
     badge: 'In Demand', badgeColor: '#2563eb', badgeText: '#fff',
-    type: 'UG', tags: ['Commerce', 'Management', 'Trending'], fee: 'Govt. Rates',
+    type: 'B.A.', tags: ['Social Sciences', 'Trending'], fee: 'Govt. Rates',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500&q=80',
     collaboration: 'Sri Dev Suman University',
   },
   6: {
     badge: 'Popular', badgeColor: '#dc2626', badgeText: '#fff',
-    type: 'UG', tags: ['Arts & Humanities', 'Social Sciences'], fee: 'Govt. Rates',
+    type: 'B.A.', tags: ['Arts & Humanities', 'Social Sciences'], fee: 'Govt. Rates',
     image: 'https://images.unsplash.com/photo-1461360370896-22ded9ba4b55?w=500&q=80',
     collaboration: 'Sri Dev Suman University',
   },
   7: {
-    badge: 'New', badgeColor: '#7c3aed', badgeText: '#fff',
-    type: 'UG', tags: ['Social Sciences', 'Management'], fee: 'Govt. Rates',
+    badge: 'Popular', badgeColor: '#7c3aed', badgeText: '#fff',
+    type: 'B.A.', tags: ['Social Sciences'], fee: 'Govt. Rates',
     image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&q=80',
+    collaboration: 'Sri Dev Suman University',
+  },
+  8: {
+    badge: 'Trending', badgeColor: '#0284c7', badgeText: '#fff',
+    type: 'B.Sc.', tags: ['Trending', 'Science'], fee: 'Govt. Rates',
+    image: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?w=500&q=80',
+    collaboration: 'Sri Dev Suman University',
+  },
+  9: {
+    badge: 'Science', badgeColor: '#f97316', badgeText: '#fff',
+    type: 'B.Sc.', tags: ['Science'], fee: 'Govt. Rates',
+    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=500&q=80',
+    collaboration: 'Sri Dev Suman University',
+  },
+  10: {
+    badge: 'STEM', badgeColor: '#2563eb', badgeText: '#fff',
+    type: 'B.Sc.', tags: ['Science', 'Technology', 'Trending'], fee: 'Govt. Rates',
+    image: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=500&q=80',
+    collaboration: 'Sri Dev Suman University',
+  },
+  11: {
+    badge: 'Life Science', badgeColor: '#f97316', badgeText: '#fff',
+    type: 'B.Sc.', tags: ['Science'], fee: 'Govt. Rates',
+    image: 'https://images.unsplash.com/photo-1530210124550-912dc1381cb8?w=500&q=80',
+    collaboration: 'Sri Dev Suman University',
+  },
+  12: {
+    badge: 'Life Science', badgeColor: '#0284c7', badgeText: '#fff',
+    type: 'B.Sc.', tags: ['Science'], fee: 'Govt. Rates',
+    image: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=500&q=80',
+    collaboration: 'Sri Dev Suman University',
+  },
+  13: {
+    badge: 'Technology', badgeColor: '#2563eb', badgeText: '#fff',
+    type: 'B.Sc.', tags: ['Technology', 'Science', 'Trending'], fee: 'Govt. Rates',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&q=80',
     collaboration: 'Sri Dev Suman University',
   },
 }
 
 const allCourses = programs.map(p => ({ ...p, ...programMeta[p.id] }))
 
-const courseTypes = ['All Courses', 'UG Courses', 'PG Courses', 'Specializations', 'Certifications']
-const subjectTags  = ['Trending', 'Arts & Humanities', 'Social Sciences', 'Management', 'Commerce']
+const courseTypes = ['All Courses', 'B.A. Programs', 'B.Sc. Programs']
+const subjectTags  = ['All', 'Trending', 'Arts & Humanities', 'Social Sciences', 'Science', 'Technology']
 
 // ─── Course Card ──────────────────────────────────────────────────────────────
 function CourseCard({ course }) {
@@ -96,7 +132,7 @@ function CourseCard({ course }) {
       <div className="flex flex-col flex-1 p-5 pb-4">
         {/* Title */}
         <h3 className="font-bold text-gray-900 text-[15px] leading-snug min-h-[2.8rem] mb-1">
-          B.A. in {course.departmentEn}
+          {course.course} in {course.departmentEn}
         </h3>
         <p className="text-xs text-gray-400 font-hindi mb-4">{course.department}</p>
 
@@ -168,8 +204,8 @@ function CourseCarousel({ courses }) {
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
           scrollSnapType: 'x mandatory',
-          paddingLeft: 'max(1rem, calc(50% - 140px))',
-          paddingRight: 'max(1rem, calc(50% - 140px))',
+          paddingLeft: '1rem',
+          paddingRight: '1rem',
         }}
       >
         {courses.map(c => (
@@ -280,7 +316,7 @@ function PageHero() {
             Academic <span className="text-saffron-400">Programs</span>
           </h1>
           <p className="text-primary-200 text-lg max-w-xl">
-            Explore our B.A. programs — 7 departments, 6 semesters, 3 years of transformative learning
+            Explore our B.A. &amp; B.Sc. programs — 13 departments, 6 semesters, 3 years of transformative learning
           </p>
         </div>
       </div>
@@ -294,14 +330,14 @@ function PageHero() {
 // ─── Main Programs Page ───────────────────────────────────────────────────────
 export default function Programs() {
   const [activeType, setActiveType] = useState('All Courses')
-  const [activeTag,  setActiveTag]  = useState('Trending')
+  const [activeTag,  setActiveTag]  = useState('All')
 
   const filtered = (() => {
     let list = allCourses
-    if      (activeType === 'UG Courses')       list = list.filter(c => c.type === 'UG')
-    else if (activeType !== 'All Courses')       list = []
-    if (list.length === 0) return list
-    return list.filter(c => c.tags.includes(activeTag))
+    if      (activeType === 'B.A. Programs')  list = list.filter(c => c.course === 'B.A.')
+    else if (activeType === 'B.Sc. Programs') list = list.filter(c => c.course === 'B.Sc.')
+    if (activeTag !== 'All') list = list.filter(c => c.tags.includes(activeTag))
+    return list
   })()
 
   return (
