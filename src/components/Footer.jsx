@@ -192,7 +192,7 @@ export default function Footer() {
           <p>
             Powered by{' '}
             <a
-              href="https://shivaitech.com"
+              href="https://www.callshivai.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary-600 font-semibold hover:text-primary-800 transition-colors"
