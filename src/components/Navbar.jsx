@@ -128,17 +128,53 @@ function DesktopDropdown({ item, lang }) {
   )
 }
 
-// ─── Language Toggle ──────────────────────────────────────────────────────────
-function LangToggle({ lang, onToggle }) {
+// ─── Language Dropdown ───────────────────────────────────────────────────────
+const LANGS = [
+  { code: 'hi', label: 'हिंदी'   },
+  { code: 'en', label: 'English' },
+]
+
+function LangDropdown({ lang, onSelect }) {
+  const [open, setOpen] = useState(false)
+  const current = LANGS.find(l => l.code === lang) || LANGS[0]
+
+  // Close on outside click
+  useEffect(() => {
+    if (!open) return
+    const close = () => setOpen(false)
+    window.addEventListener('click', close)
+    return () => window.removeEventListener('click', close)
+  }, [open])
+
   return (
-    <button
-      onClick={onToggle}
-      title={lang === 'hi' ? 'Switch to English' : 'हिंदी में देखें'}
-      className="flex items-center gap-1 px-2 py-1 rounded border border-white/30 text-[0.68rem] font-bold text-white hover:bg-white/10 transition-colors whitespace-nowrap"
-    >
-      <FaGlobe className="text-[9px] opacity-80" />
-      {lang === 'hi' ? 'EN' : 'हिंदी'}
-    </button>
+    <div className="relative" onClick={e => e.stopPropagation()}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="flex items-center gap-1 px-2 py-1 rounded border border-white/30 text-[0.68rem] font-bold text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+      >
+        <FaGlobe className="text-[9px] opacity-80" />
+        {current.label}
+        <FaChevronDown className={`text-[8px] opacity-70 transition-transform duration-150 ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <div className="absolute right-0 top-full mt-1 bg-white rounded-lg shadow-xl border border-gray-100 z-[300] py-1 min-w-[110px]">
+          {LANGS.map(l => (
+            <button
+              key={l.code}
+              onClick={() => { onSelect(l.code); setOpen(false) }}
+              className={`w-full text-left px-3 py-2 text-xs transition-colors flex items-center justify-between ${
+                lang === l.code
+                  ? 'bg-primary-50 text-primary-700 font-semibold'
+                  : 'text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              {l.label}
+              {lang === l.code && <span className="text-primary-500 text-[10px]">✓</span>}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -152,11 +188,17 @@ export default function Navbar() {
   )
   const location = useLocation()
 
-  const toggleLang = () => {
-    const next = lang === 'hi' ? 'en' : 'hi'
-    setLang(next)
-    if (window._gdcSetLang) window._gdcSetLang(next)
+  const selectLang = (code) => {
+    setLang(code)
+    if (window._gdcSetLang) window._gdcSetLang(code)
   }
+
+  // Sync React lang state when GT changes language externally (auto-init)
+  useEffect(() => {
+    const handler = (e) => setLang(e.detail.lang)
+    window.addEventListener('gdcLangChange', handler)
+    return () => window.removeEventListener('gdcLangChange', handler)
+  }, [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -238,7 +280,7 @@ export default function Navbar() {
                  className="hidden xl:flex items-center gap-1 text-primary-200 text-xs hover:text-white transition-colors">
                 📞 {collegeInfo.phones[0]}
               </a>
-              <LangToggle lang={lang} onToggle={toggleLang} />
+              <LangDropdown lang={lang} onSelect={selectLang} />
               <a
                 href={collegeInfo.applyLink}
                 target="_blank"

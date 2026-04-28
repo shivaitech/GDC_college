@@ -42,31 +42,34 @@
 
     <!-- Google Translate Widget -->
     <script type="text/javascript">
-      // ── Aggressively remove the GT toolbar iframe + body shift ───────────
+      // ── Suppress GT toolbar bar + body shift ────────────────────────────
       function _killGTBar() {
-        // Hide the banner iframe
         var frames = document.querySelectorAll('.goog-te-banner-frame, iframe.skiptranslate');
-        frames.forEach(function(f) { f.style.display = 'none'; f.style.visibility = 'hidden'; });
-        // Fix body being pushed down
+        frames.forEach(function(f) { f.style.cssText = 'display:none!important;visibility:hidden!important;'; });
         if (document.body) {
           document.body.style.top = '0px';
           document.body.style.marginTop = '0px';
         }
-        // Remove GT's inline top style injected on <html>
         document.documentElement.style.removeProperty('top');
       }
 
-      // Poll every 100ms for up to 5 seconds until the bar appears and kill it
-      var _killTimer = setInterval(function() {
-        _killGTBar();
-      }, 100);
-      setTimeout(function() { clearInterval(_killTimer); }, 5000);
+      var _killTimer = setInterval(_killGTBar, 100);
+      setTimeout(function() { clearInterval(_killTimer); }, 6000);
 
-      // Also observe DOM mutations (GT injects the iframe dynamically)
       document.addEventListener('DOMContentLoaded', function() {
-        var obs = new MutationObserver(function() { _killGTBar(); });
+        var obs = new MutationObserver(_killGTBar);
         obs.observe(document.body, { childList: true, subtree: false });
       });
+
+      // ── Set googtrans cookie (primary GT mechanism, survives reload) ─────
+      function _setGTCookie(lang) {
+        var val = (lang === 'en') ? '/en/en' : '/en/' + lang;
+        document.cookie = 'googtrans=' + val + '; path=/';
+        // also set on domain for subdomains
+        try {
+          document.cookie = 'googtrans=' + val + '; path=/; domain=' + window.location.hostname;
+        } catch(e) {}
+      }
 
       // ── Translation init ──────────────────────────────────────────────────
       function googleTranslateElementInit() {
@@ -78,29 +81,45 @@
           gaTrack: false
         }, 'google_translate_element');
 
-        // Auto-translate to saved lang (default = Hindi)
-        setTimeout(function () {
-          _killGTBar();
-          var savedLang = localStorage.getItem('gdc_lang') || 'hi';
-          window._gdcSetLang(savedLang);
-        }, 900);
+        // Apply saved/default language after widget is ready
+        var savedLang = localStorage.getItem('gdc_lang') || 'hi';
+        _setGTCookie(savedLang);
+        _applyLangViaCombo(savedLang, 0);
       }
 
-      // Global helpers used by React Navbar toggle
-      window._gdcSetLang = function (lang) {
-        var select = document.querySelector('.goog-te-combo');
-        if (select) {
-          select.value = lang;
-          select.dispatchEvent(new Event('change'));
-          localStorage.setItem('gdc_lang', lang);
+      // Retry-based combo select (GT may not render immediately)
+      function _applyLangViaCombo(lang, attempt) {
+        var sel = document.querySelector('.goog-te-combo');
+        if (sel) {
+          sel.value = lang;
+          sel.dispatchEvent(new Event('change'));
+          setTimeout(_killGTBar, 300);
+          setTimeout(_killGTBar, 900);
+        } else if (attempt < 25) {
+          setTimeout(function() { _applyLangViaCombo(lang, attempt + 1); }, 200);
         }
-        // Re-kill bar after language switch (GT re-injects it)
-        setTimeout(_killGTBar, 300);
-        setTimeout(_killGTBar, 800);
+      }
+
+      // ── Global helpers used by React ──────────────────────────────────────
+      window._gdcSetLang = function(lang) {
+        localStorage.setItem('gdc_lang', lang);
+        _setGTCookie(lang);
+        // Notify React components so they can sync state
+        window.dispatchEvent(new CustomEvent('gdcLangChange', { detail: { lang: lang } }));
+        _applyLangViaCombo(lang, 0);
       };
 
-      window._gdcGetLang = function () {
-        return localStorage.getItem('gdc_lang') || 'hi';
+      window._gdcGetLang = function() {
+        var stored = localStorage.getItem('gdc_lang');
+        if (stored) return stored;
+        // Fallback: read from googtrans cookie
+        var c = document.cookie.split(';').find(function(s) { return s.trim().indexOf('googtrans=') === 0; });
+        if (c) {
+          var parts = decodeURIComponent(c.trim().split('=')[1] || '').split('/');
+          var target = parts[parts.length - 1];
+          if (target && target.length === 2 && target !== 'en') return target;
+        }
+        return 'hi';
       };
     </script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
