@@ -186,10 +186,20 @@ export default function Footer() {
       </div>
 
       {/* ─── Bottom Bar ───────────────────────────────────────────────────── */}
-      <div className="border-t border-slate-200">
-        <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-400">
-          <p>© {year} Mahayogi Guru Gorakhnath Rajkiya Mahavidyalaya Bithyani. All rights reserved.</p>
-          <p>Yamkeshwar, Pauri Garhwal, Uttarakhand – 246121</p>
+      <div className="border-t border-slate-200 bg-gray-50">
+        <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-1.5 text-xs text-gray-400">
+          <p>© {year} Mahayogi Guru Gorakhnath Rajkiya Mahavidyalaya Bithyani. All Rights Reserved.</p>
+          <p>
+            Powered by{' '}
+            <a
+              href="https://shivaitech.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-600 font-semibold hover:text-primary-800 transition-colors"
+            >
+              ShivAI Tech Pvt. Limited
+            </a>
+          </p>
         </div>
       </div>
     </footer>

@@ -32,11 +32,79 @@
       document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, { passive: false });
       document.addEventListener('gestureend',   function(e) { e.preventDefault(); }, { passive: false });
     </script>
-    <script type="module" crossorigin src="/assets/index-6YUrd0Fx.js"></script>
+    <script type="module" crossorigin src="/assets/index-CMBF7y17.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-DubXLatr.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-Cq1pPpSH.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-hS5WYdcQ.css">
   </head>
   <body>
+    <!-- Google Translate hidden element -->
+    <div id="google_translate_element" style="display:none"></div>
+
     <div id="root"></div>
+
+    <!-- Google Translate Widget -->
+    <script type="text/javascript">
+      // ── Aggressively remove the GT toolbar iframe + body shift ───────────
+      function _killGTBar() {
+        // Hide the banner iframe
+        var frames = document.querySelectorAll('.goog-te-banner-frame, iframe.skiptranslate');
+        frames.forEach(function(f) { f.style.display = 'none'; f.style.visibility = 'hidden'; });
+        // Fix body being pushed down
+        if (document.body) {
+          document.body.style.top = '0px';
+          document.body.style.marginTop = '0px';
+        }
+        // Remove GT's inline top style injected on <html>
+        document.documentElement.style.removeProperty('top');
+      }
+
+      // Poll every 100ms for up to 5 seconds until the bar appears and kill it
+      var _killTimer = setInterval(function() {
+        _killGTBar();
+      }, 100);
+      setTimeout(function() { clearInterval(_killTimer); }, 5000);
+
+      // Also observe DOM mutations (GT injects the iframe dynamically)
+      document.addEventListener('DOMContentLoaded', function() {
+        var obs = new MutationObserver(function() { _killGTBar(); });
+        obs.observe(document.body, { childList: true, subtree: false });
+      });
+
+      // ── Translation init ──────────────────────────────────────────────────
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'hi,en',
+          autoDisplay: false,
+          multilanguagePage: false,
+          gaTrack: false
+        }, 'google_translate_element');
+
+        // Auto-translate to saved lang (default = Hindi)
+        setTimeout(function () {
+          _killGTBar();
+          var savedLang = localStorage.getItem('gdc_lang') || 'hi';
+          window._gdcSetLang(savedLang);
+        }, 900);
+      }
+
+      // Global helpers used by React Navbar toggle
+      window._gdcSetLang = function (lang) {
+        var select = document.querySelector('.goog-te-combo');
+        if (select) {
+          select.value = lang;
+          select.dispatchEvent(new Event('change'));
+          localStorage.setItem('gdc_lang', lang);
+        }
+        // Re-kill bar after language switch (GT re-injects it)
+        setTimeout(_killGTBar, 300);
+        setTimeout(_killGTBar, 800);
+      };
+
+      window._gdcGetLang = function () {
+        return localStorage.getItem('gdc_lang') || 'hi';
+      };
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>
