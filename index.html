@@ -62,10 +62,10 @@
       });
 
       // ── Set googtrans cookie (primary GT mechanism, survives reload) ─────
+      // Source is always 'hi' because all page content is written in Hindi
       function _setGTCookie(lang) {
-        var val = (lang === 'en') ? '/en/en' : '/en/' + lang;
+        var val = '/hi/' + lang;  // e.g. /hi/en or /hi/hi
         document.cookie = 'googtrans=' + val + '; path=/';
-        // also set on domain for subdomains
         try {
           document.cookie = 'googtrans=' + val + '; path=/; domain=' + window.location.hostname;
         } catch(e) {}
@@ -74,7 +74,7 @@
       // ── Translation init ──────────────────────────────────────────────────
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({
-          pageLanguage: 'en',
+          pageLanguage: 'hi',   // actual content language is Hindi
           includedLanguages: 'hi,en',
           autoDisplay: false,
           multilanguagePage: false,
