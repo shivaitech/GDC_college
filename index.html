@@ -42,22 +42,51 @@
 
     <!-- Google Translate Widget -->
     <script type="text/javascript">
+      // ── Aggressively remove the GT toolbar iframe + body shift ───────────
+      function _killGTBar() {
+        // Hide the banner iframe
+        var frames = document.querySelectorAll('.goog-te-banner-frame, iframe.skiptranslate');
+        frames.forEach(function(f) { f.style.display = 'none'; f.style.visibility = 'hidden'; });
+        // Fix body being pushed down
+        if (document.body) {
+          document.body.style.top = '0px';
+          document.body.style.marginTop = '0px';
+        }
+        // Remove GT's inline top style injected on <html>
+        document.documentElement.style.removeProperty('top');
+      }
+
+      // Poll every 100ms for up to 5 seconds until the bar appears and kill it
+      var _killTimer = setInterval(function() {
+        _killGTBar();
+      }, 100);
+      setTimeout(function() { clearInterval(_killTimer); }, 5000);
+
+      // Also observe DOM mutations (GT injects the iframe dynamically)
+      document.addEventListener('DOMContentLoaded', function() {
+        var obs = new MutationObserver(function() { _killGTBar(); });
+        obs.observe(document.body, { childList: true, subtree: false });
+      });
+
+      // ── Translation init ──────────────────────────────────────────────────
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({
           pageLanguage: 'en',
           includedLanguages: 'hi,en',
           autoDisplay: false,
-          multilanguagePage: false
+          multilanguagePage: false,
+          gaTrack: false
         }, 'google_translate_element');
 
-        // Auto-translate to Hindi on first visit (default language = Hindi)
+        // Auto-translate to saved lang (default = Hindi)
         setTimeout(function () {
+          _killGTBar();
           var savedLang = localStorage.getItem('gdc_lang') || 'hi';
           window._gdcSetLang(savedLang);
-        }, 800);
+        }, 900);
       }
 
-      // Global helper used by React Navbar toggle
+      // Global helpers used by React Navbar toggle
       window._gdcSetLang = function (lang) {
         var select = document.querySelector('.goog-te-combo');
         if (select) {
@@ -65,6 +94,9 @@
           select.dispatchEvent(new Event('change'));
           localStorage.setItem('gdc_lang', lang);
         }
+        // Re-kill bar after language switch (GT re-injects it)
+        setTimeout(_killGTBar, 300);
+        setTimeout(_killGTBar, 800);
       };
 
       window._gdcGetLang = function () {
