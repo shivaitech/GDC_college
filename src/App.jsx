@@ -9,6 +9,7 @@ import Faculty from './pages/Faculty'
 import Programs from './pages/Programs'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
+import Associations from './pages/Associations'
 
 // Scroll to top on route change
 function RouteChangeScrollTop() {
@@ -43,8 +44,9 @@ export default function App() {
         <Route path="/faculty"  element={<Faculty />}  />
         <Route path="/programs" element={<Programs />} />
         <Route path="/gallery"  element={<Gallery />}  />
-        <Route path="/contact"  element={<Contact />}  />
-        <Route path="*"         element={<NotFound />} />
+        <Route path="/contact"      element={<Contact />}      />
+        <Route path="/associations"  element={<Associations />}  />
+        <Route path="*"              element={<NotFound />}      />
       </Routes>
       <Footer />
       <ScrollToTop />

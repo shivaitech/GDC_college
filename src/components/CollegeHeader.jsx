@@ -17,13 +17,13 @@ export default function CollegeHeader() {
           <div className="flex-1 text-center min-w-0">
             {/* Hindi Name — big, bold, red */}
             <h1 className="font-hindi font-extrabold text-red-600 leading-tight"
-                style={{ fontSize: 'clamp(0.7rem, 2.2vw, 1.35rem)' }}>
+                style={{ fontSize: 'clamp(0.7rem, 2.54vw, 1.56rem)' }}>
               महायोगी गुरु गोरखनाथ राजकीय महाविद्यालय बिथ्याणी, यमकेश्वर पौड़ी गढ़वाल उत्तराखंड
             </h1>
 
             {/* English Name — blue */}
             <p className="text-blue-700 font-semibold leading-snug mt-0.5"
-               style={{ fontSize: 'clamp(0.55rem, 1.3vw, 0.95rem)' }}>
+               style={{ fontSize: 'clamp(0.55rem, 1.51vw, 1.1rem)' }}>
               Mahayogi Gurugorakhnath Government Degree College Bithyani, Yamkeswar, Pauri Garhwal, Uttarakhand
             </p>
           </div>
@@ -31,15 +31,15 @@ export default function CollegeHeader() {
           {/* Right — Affiliation text block */}
           <div className="flex-shrink-0 text-center max-w-[140px] sm:max-w-[180px] md:max-w-[220px]">
             <p className="font-semibold text-gray-800 leading-snug"
-               style={{ fontSize: 'clamp(0.52rem, 1vw, 0.82rem)' }}>
+               style={{ fontSize: 'clamp(0.52rem, 1.16vw, 0.95rem)' }}>
               Affiliated to
             </p>
             <p className="font-bold text-primary-800 leading-snug"
-               style={{ fontSize: 'clamp(0.52rem, 1vw, 0.82rem)' }}>
+               style={{ fontSize: 'clamp(0.52rem, 1.16vw, 0.95rem)' }}>
               Sri Dev Suman Uttarakhand University
             </p>
             <p className="text-gray-600 leading-snug"
-               style={{ fontSize: 'clamp(0.48rem, 0.9vw, 0.75rem)' }}>
+               style={{ fontSize: 'clamp(0.48rem, 1.05vw, 0.87rem)' }}>
               Badshahithaul, Tehri Garhwal, Uttarakhand
             </p>
           </div>

@@ -112,23 +112,7 @@ function HeroSlider() {
           >
             {slide.description}
           </p>
-          <div className="flex flex-wrap justify-center gap-2">
-            <a
-              href={slide.ctaLink.startsWith('http') ? slide.ctaLink : undefined}
-              onClick={!slide.ctaLink.startsWith('http') ? e => { e.preventDefault(); window.location.href = slide.ctaLink } : undefined}
-              target={slide.ctaLink.startsWith('http') ? '_blank' : undefined}
-              rel={slide.ctaLink.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="flex items-center gap-1.5 bg-saffron-500 hover:bg-saffron-400 text-white font-bold px-5 py-2.5 rounded-lg text-sm transition-colors"
-            >
-              {slide.ctaText} <FaArrowRight className="text-xs" />
-            </a>
-            <Link
-              to="/about"
-              className="flex items-center gap-1.5 bg-white/10 border border-white/30 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors"
-            >
-              About College
-            </Link>
-          </div>
+
         </div>
 
       </section>
@@ -148,61 +132,12 @@ function HeroSlider() {
               loading={i === 0 ? 'eager' : 'lazy'}
               onError={e => { e.target.src = 'https://images.unsplash.com/photo-1562774053-701939374585?w=1400&q=80' }}
             />
-            <div className="absolute inset-0 bg-hero-gradient" />
-            <div className="absolute bottom-0 left-0 right-0 h-32 opacity-20"
-              style={{ background: 'linear-gradient(to top, rgba(15,23,42,0.8), transparent)' }}
-            />
+            <div className="absolute inset-0 bg-black/20" />
           </div>
         ))}
 
         {/* Content overlay */}
-        <div className="relative z-10 h-full flex items-center">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-5">
-                <FaMapMarkerAlt className="text-saffron-400 text-xs" />
-                <span className="text-white text-xs font-medium">Yamkeshwar, Pauri Garhwal, Uttarakhand</span>
-              </div>
-              <h1
-                key={`title-${current}`}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-3 animate-fade-in-up font-hindi"
-              >
-                {slide.title}
-              </h1>
-              <h2
-                key={`sub-${current}`}
-                className="text-xl sm:text-2xl md:text-3xl font-bold text-saffron-400 mb-4 animate-fade-in-up"
-                style={{ animationDelay: '0.1s' }}
-              >
-                {slide.subtitle}
-              </h2>
-              <p
-                key={`desc-${current}`}
-                className="text-base md:text-lg text-white/85 mb-8 max-w-xl leading-relaxed animate-fade-in-up"
-                style={{ animationDelay: '0.2s' }}
-              >
-                {slide.description}
-              </p>
-              <div className="flex flex-wrap gap-3 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                <a
-                  href={slide.ctaLink.startsWith('http') ? slide.ctaLink : undefined}
-                  onClick={!slide.ctaLink.startsWith('http') ? e => { e.preventDefault(); window.location.href = slide.ctaLink } : undefined}
-                  target={slide.ctaLink.startsWith('http') ? '_blank' : undefined}
-                  rel={slide.ctaLink.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-2 bg-saffron-500 hover:bg-saffron-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5 shadow-lg"
-                >
-                  {slide.ctaText} <FaArrowRight />
-                </a>
-                <Link
-                  to="/about"
-                  className="flex items-center gap-2 bg-white/15 backdrop-blur-sm hover:bg-white/25 border border-white/30 text-white font-semibold px-6 py-3.5 rounded-xl transition-all duration-300"
-                >
-                  About College
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+
 
         {/* Dots */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
@@ -223,7 +158,7 @@ function HeroSlider() {
           <div className="container mx-auto px-4">
             <div className="hidden md:grid grid-cols-4 gap-px bg-white/10 backdrop-blur-md border-t border-white/10">
               {[
-                { icon: FaBook,          label: 'BA Programs',    value: '7 Subjects' },
+                { icon: FaBook,          label: 'BA & BSc',       value: '13 Subjects' },
                 { icon: FaUsers,         label: 'Faculty',        value: '13 Teachers' },
                 { icon: FaGraduationCap, label: 'Established',    value: '2005' },
                 { icon: FaAward,         label: 'Recognition',    value: 'Govt. 2018' },
@@ -288,16 +223,28 @@ function AboutSection() {
           >
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%201.png"
-                alt="GDC Bithyani Campus"
-                className="rounded-2xl w-full h-48 object-cover shadow-card"
+                src="/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/WhatsApp%20Image%202026-05-06%20at%2010.10.02%20PM.jpeg"
+                alt="College Gallery"
+                className="rounded-2xl w-full h-44 object-cover shadow-card"
                 onError={e => { e.target.src = 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80' }}
               />
               <img
                 src="/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%202.png"
                 alt="GDC Bithyani Building"
-                className="rounded-2xl w-full h-48 object-cover shadow-card mt-6"
+                className="rounded-2xl w-full h-44 object-cover shadow-card mt-6"
                 onError={e => { e.target.src = 'https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80' }}
+              />
+              <img
+                src="/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/24.JPG"
+                alt="GDC Bithyani Campus"
+                className="rounded-2xl w-full h-44 object-cover shadow-card"
+                onError={e => { e.target.src = 'https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?w=600&q=80' }}
+              />
+              <img
+                src="/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/2.png"
+                alt="College Gallery 2"
+                className="rounded-2xl w-full h-44 object-cover shadow-card mt-6"
+                onError={e => { e.target.src = 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80' }}
               />
             </div>
             {/* Floating badge */}
@@ -381,6 +328,104 @@ function AboutSection() {
             </div>
           </div>
         </div>
+      </div>
+    </section>
+  )
+}
+
+// ─── Dignitaries Section ────────────────────────────────────────────────────
+const DIGNITARIES = [
+  {
+    name: 'Lt. Gen. (Retd.) Gurmit Singh',
+    role: "Hon'ble Governor",
+    roleHindi: 'माननीय राज्यपाल',
+    photo: 'https://cdnbbsr.s3waas.gov.in/s39ed9328611fe3f45b3cce8ffe386ee97/uploads/2025/01/20250120692222774.jpg',
+    color: 'from-amber-600 to-yellow-500',
+    badge: 'bg-amber-100 text-amber-800',
+  },
+  {
+    name: 'Shri Pushkar Singh Dhami',
+    role: "Hon'ble Chief Minister",
+    roleHindi: 'माननीय मुख्यमंत्री',
+    photo: 'https://cdnbbsr.s3waas.gov.in/s39ed9328611fe3f45b3cce8ffe386ee97/uploads/2025/02/202502221386451731.jpg',
+    color: 'from-saffron-600 to-orange-400',
+    badge: 'bg-orange-100 text-orange-800',
+  },
+  {
+    name: 'Dr. Dhan Singh Rawat',
+    role: "Hon'ble Minister",
+    roleHindi: 'माननीय मंत्री, उच्च शिक्षा',
+    photo: 'https://cdnbbsr.s3waas.gov.in/s39ed9328611fe3f45b3cce8ffe386ee97/uploads/2025/01/20250120489403455.jpg',
+    color: 'from-primary-700 to-blue-500',
+    badge: 'bg-blue-100 text-blue-800',
+  },
+  {
+    name: 'Dr. Ranjit Kumar Sinha',
+    role: 'Secretary',
+    roleHindi: 'सचिव, उच्च शिक्षा',
+    photo: 'https://cdnbbsr.s3waas.gov.in/s39ed9328611fe3f45b3cce8ffe386ee97/uploads/2025/01/2025012051990594.jpeg',
+    color: 'from-teal-600 to-cyan-500',
+    badge: 'bg-teal-100 text-teal-800',
+  },
+  {
+    name: 'Prof. Vishwa Nath Khali',
+    role: 'Director Higher Education',
+    roleHindi: 'निदेशक, उच्च शिक्षा उत्तराखंड',
+    photo: 'https://cdnbbsr.s3waas.gov.in/s39ed9328611fe3f45b3cce8ffe386ee97/uploads/2025/08/202508041087223122.png',
+    color: 'from-purple-700 to-violet-500',
+    badge: 'bg-purple-100 text-purple-800',
+  },
+]
+
+function DignitariesSection() {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
+  return (
+    <section ref={ref} className="py-16 bg-gradient-to-br from-slate-50 via-white to-primary-50">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <span className="badge bg-primary-100 text-primary-700 mb-3">Government of Uttarakhand</span>
+          <h2 className="section-title">Our Honourable Leaders</h2>
+          <p className="text-xs text-gray-400 font-hindi mt-1">उत्तराखण्ड उच्च शिक्षा विभाग</p>
+          <div className="section-divider"></div>
+        </div>
+
+        {/* Cards */}
+        <div className="flex flex-wrap justify-center gap-5">
+          {DIGNITARIES.map((d, i) => (
+            <div
+              key={i}
+              className={`w-44 sm:w-48 flex flex-col items-center transition-all duration-700 ${
+                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${i * 0.1}s` }}
+            >
+              {/* Photo ring */}
+              <div className={`relative p-1 rounded-full bg-gradient-to-br ${d.color} shadow-lg mb-3`}>
+                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white">
+                  <img
+                    src={d.photo}
+                    alt={d.name}
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                    onError={e => { e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="%234f46e5"/><text x="50" y="62" font-size="32" text-anchor="middle" fill="white" font-family="serif">' + d.name.charAt(0) + '</text></svg>' }}
+                  />
+                </div>
+
+              </div>
+              {/* Info */}
+              <div className="text-center">
+                <p className="font-bold text-gray-900 text-sm leading-snug">{d.name}</p>
+                <span className={`inline-block mt-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${d.badge}`}>
+                  {d.role}
+                </span>
+                <p className="text-gray-400 text-[11px] font-hindi mt-1 leading-tight">{d.roleHindi}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+
       </div>
     </section>
   )
@@ -915,66 +960,151 @@ function GalleryPreview() {
 function NewsSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
 
+  const typeConfig = {
+    new:    { label: 'NEW',    bg: 'bg-red-500',   text: 'text-white',     icon: '🔴', cardBorder: 'border-red-100',    cardHover: 'hover:border-red-300 hover:bg-red-50' },
+    notice: { label: 'Notice', bg: 'bg-amber-500', text: 'text-white',     icon: '📋', cardBorder: 'border-amber-100',  cardHover: 'hover:border-amber-300 hover:bg-amber-50' },
+    event:  { label: 'Event',  bg: 'bg-blue-500',  text: 'text-white',     icon: '📅', cardBorder: 'border-blue-100',   cardHover: 'hover:border-blue-300 hover:bg-blue-50' },
+  }
+
+  const notifications = [
+    { id: 1,  text: 'First Merit List of B.A. I Semester (2025-26) Published',       date: '20 Aug 2025', type: 'new',    urgent: true },
+    { id: 2,  text: 'कक्षावार शुल्क विवरण 2025-26 — Fee Structure Available',         date: '18 Aug 2025', type: 'new',    urgent: true },
+    { id: 3,  text: 'Book Tender Notice — Last Date for Submission',                  date: '15 Aug 2025', type: 'notice', urgent: false },
+    { id: 4,  text: 'Online Admission Open 2025-26 at ukadmission.samarth.ac.in',     date: '01 Jul 2025', type: 'new',    urgent: true },
+    { id: 5,  text: 'तिरंगा यात्रा कार्यक्रम — 13 August 2025',                       date: '13 Aug 2025', type: 'event',  urgent: false },
+    { id: 6,  text: 'नवप्रवेशी छात्रों का दीक्षारम्भ कार्यक्रम — 19 August 2025',    date: '19 Aug 2025', type: 'event',  urgent: false },
+    { id: 7,  text: 'कृषक प्रशिक्षण कार्यक्रम — 13 August 2025',                      date: '13 Aug 2025', type: 'event',  urgent: false },
+    { id: 8,  text: 'हरेला पर्व महाविद्यालय में मनाया गया — 16 July 2025',             date: '16 Jul 2025', type: 'event',  urgent: false },
+  ]
+
   return (
-    <section ref={ref} className="py-20 bg-white">
+    <section ref={ref} className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
-          {/* News */}
+        {/* Section header */}
+        <div className="text-center mb-12">
+          <span className="badge bg-primary-100 text-primary-700 mb-3">Updates & Notices</span>
+          <h2 className="section-title">News & Notifications</h2>
+          <div className="section-divider"></div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+          {/* ── Left: News Blog Cards ── */}
           <div className="lg:col-span-2">
-            <span className="badge bg-red-100 text-red-600 mb-3">Latest News</span>
-            <h2 className="section-title mb-2">ताजा खबर</h2>
-            <div className="section-divider-left mb-6"></div>
-
-            <div className="space-y-3">
-              {newsItems.map((item, i) => (
-                <div
-                  key={item.id}
-                  className={`flex items-start gap-3 p-4 rounded-xl border border-gray-100 hover:border-primary-200 hover:bg-primary-50 transition-all duration-300 transition-opacity duration-700 ${
-                    inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-                  }`}
-                  style={{ transitionDelay: `${i * 0.06}s` }}
-                >
-                  {item.type === 'new' && (
-                    <span className="badge bg-red-500 text-white text-[10px] mt-0.5 flex-shrink-0">NEW</span>
-                  )}
-                  {item.type === 'notice' && (
-                    <span className="badge bg-amber-500 text-white text-[10px] mt-0.5 flex-shrink-0">Notice</span>
-                  )}
-                  {item.type === 'event' && (
-                    <span className="badge bg-blue-500 text-white text-[10px] mt-0.5 flex-shrink-0">Event</span>
-                  )}
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm text-gray-800 font-hindi leading-relaxed">{item.text}</p>
-                    <p className="text-xs text-gray-400 mt-1">{item.date}</p>
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <span className="badge bg-red-100 text-red-600 mb-1">Latest News</span>
+                <h3 className="text-xl font-bold text-gray-900">ताज़ा समाचार</h3>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {newsItems.map((item, i) => {
+                const cfg = typeConfig[item.type] || typeConfig.notice
+                const dateObj = new Date(item.date)
+                const day = dateObj.getDate()
+                const mon = dateObj.toLocaleString('en-IN', { month: 'short' })
+                const yr  = dateObj.getFullYear()
+                return (
+                  <div
+                    key={item.id}
+                    className={`bg-white rounded-2xl border ${cfg.cardBorder} ${cfg.cardHover} shadow-sm transition-all duration-500 overflow-hidden group cursor-pointer ${
+                      inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                    }`}
+                    style={{ transitionDelay: `${i * 0.08}s` }}
+                  >
+                    {/* Top colour strip */}
+                    <div className={`h-1 w-full ${cfg.bg}`} />
+                    <div className="p-5">
+                      <div className="flex items-start gap-4">
+                        {/* Date block */}
+                        <div className="flex-shrink-0 bg-primary-50 rounded-xl px-3 py-2 text-center min-w-[52px]">
+                          <p className="text-primary-700 font-extrabold text-lg leading-none">{day}</p>
+                          <p className="text-primary-500 text-[10px] font-semibold uppercase">{mon}</p>
+                          <p className="text-gray-400 text-[10px]">{yr}</p>
+                        </div>
+                        {/* Content */}
+                        <div className="flex-1 min-w-0">
+                          <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-bold ${cfg.bg} ${cfg.text} mb-2`}>
+                            {cfg.label}
+                          </span>
+                          <p className="text-gray-800 text-sm font-hindi leading-relaxed line-clamp-3">
+                            {item.text}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="text-xs text-gray-400">GDC Bithyani</span>
+                        <span className="text-xs text-primary-600 font-semibold group-hover:underline flex items-center gap-1">
+                          Read More <FaArrowRight className="text-[9px]" />
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
 
-          {/* Important Links */}
-          <div>
-            <span className="badge bg-primary-100 text-primary-700 mb-3">Important Links</span>
-            <h2 className="text-2xl font-bold text-primary-900 mb-2">Useful Resources</h2>
-            <div className="section-divider-left mb-6"></div>
+          {/* ── Right: Notification Board ── */}
+          <div className="lg:sticky lg:top-24">
+            <div className="bg-white rounded-2xl shadow-lg border border-primary-100 overflow-hidden">
+              {/* Header */}
+              <div className="bg-primary-800 px-5 py-4 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                  <span className="text-white text-base">📌</span>
+                </div>
+                <div>
+                  <h3 className="text-white font-bold text-base leading-none">Notification Board</h3>
+                  <p className="text-primary-300 text-xs mt-0.5">सूचना पटल</p>
+                </div>
+                <span className="ml-auto bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse">
+                  LIVE
+                </span>
+              </div>
 
-            <div className="space-y-2">
-              {importantLinks.map(link => (
+              {/* Scrollable list */}
+              <div className="divide-y divide-gray-50 max-h-[480px] overflow-y-auto custom-scroll">
+                {notifications.map((n, i) => {
+                  const cfg = typeConfig[n.type] || typeConfig.notice
+                  return (
+                    <div
+                      key={n.id}
+                      className={`flex items-start gap-3 px-4 py-3.5 hover:bg-gray-50 transition-colors cursor-pointer transition-all duration-500 ${
+                        inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+                      }`}
+                      style={{ transitionDelay: `${i * 0.07}s` }}
+                    >
+                      {/* Dot */}
+                      <span className={`mt-1.5 w-2 h-2 rounded-full flex-shrink-0 ${cfg.bg}`} />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-gray-800 text-xs font-hindi leading-relaxed">{n.text}</p>
+                        <div className="flex items-center gap-2 mt-1">
+                          <span className={`text-[10px] px-1.5 py-0.5 rounded font-semibold ${cfg.bg} ${cfg.text}`}>
+                            {cfg.label}
+                          </span>
+                          <span className="text-[10px] text-gray-400">{n.date}</span>
+                          {n.urgent && (
+                            <span className="text-[10px] text-red-500 font-bold animate-pulse">● Urgent</span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+
+              {/* Footer */}
+              <div className="px-5 py-3 bg-gray-50 border-t border-gray-100">
                 <a
-                  key={link.url}
-                  href={link.url}
+                  href="https://gdcbithyani.ac.in"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:border-primary-300 hover:bg-primary-50 transition-all duration-200 group"
+                  className="flex items-center justify-center gap-1.5 text-primary-700 text-xs font-semibold hover:underline"
                 >
-                  <span className="text-sm text-gray-700 group-hover:text-primary-700 transition-colors">{link.name}</span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] text-gray-400">{link.category}</span>
-                    <FaExternalLinkAlt className="text-[10px] text-gray-400 group-hover:text-primary-500 transition-colors" />
-                  </div>
+                  View All Notifications <FaExternalLinkAlt className="text-[9px]" />
                 </a>
-              ))}
+              </div>
             </div>
           </div>
 
@@ -1038,6 +1168,7 @@ export default function Home() {
       <NewsTicker />
       <StatsSection />
       <AboutSection />
+      <DignitariesSection />
       <TributeSection />
       <ProgramsSection />
       <PrincipalMessage />

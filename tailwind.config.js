@@ -80,7 +80,7 @@ export default {
       },
       backgroundImage: {
         'mountain-gradient': 'linear-gradient(135deg, #172554 0%, #1e3a8a 40%, #1d4ed8 80%, #3b82f6 100%)',
-        'hero-gradient':     'linear-gradient(to bottom, rgba(15,23,42,0.72) 0%, rgba(15,23,42,0.38) 50%, rgba(15,23,42,0.82) 100%)',
+        'hero-gradient':     'linear-gradient(to bottom, rgba(15,23,42,0.15) 0%, rgba(15,23,42,0.05) 50%, rgba(15,23,42,0.20) 100%)',
       },
       boxShadow: {
         'card':    '0 4px 20px rgba(0,0,0,0.08)',

@@ -337,7 +337,7 @@ export const galleryImages = [
 export const heroSlides = [
   {
     id: 1,
-    image: '/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/1.png',
+    image: '/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/11.png',
     title: 'महायोगी गुरु गोरखनाथ',
     subtitle: 'राजकीय महाविद्यालय बिथ्याणी',
     description: 'हरे-भरे गढ़वाल हिमालय की गोद में स्थित — ज्ञान और संस्कृति का केंद्र',

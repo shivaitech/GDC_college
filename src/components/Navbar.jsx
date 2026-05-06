@@ -56,6 +56,8 @@ const navConfig = [
       { label: 'राष्ट्रीय छात्रवृत्ति',         labelEn: 'National Scholarships',     href: 'https://scholarships.gov.in/' },
       { label: 'राष्ट्रीय डिजिटल पुस्तकालय',   labelEn: 'National Digital Library',  href: 'https://ndl.iitkgp.ac.in/' },
       { label: 'UGC India',                       labelEn: 'UGC India',                 href: 'https://www.ugc.gov.in/' },
+      { label: 'छात्र संघ',                       labelEn: 'Student Union',             to: '/associations', internal: true },
+      { label: 'अभिभावक-शिक्षक संघ',             labelEn: 'Parents Teachers Assoc.',   to: '/associations', internal: true },
     ],
   },
   { label: 'गैलरी',        labelEn: 'Gallery',   to: '/gallery' },
@@ -89,7 +91,7 @@ function DesktopDropdown({ item, lang }) {
       onMouseLeave={handleLeave}
     >
       <button
-        className={`flex items-center gap-0.5 px-1.5 xl:px-2 py-1.5 text-[0.65rem] xl:text-[0.7rem] font-semibold rounded transition-colors whitespace-nowrap uppercase tracking-wide ${
+        className={`flex items-center gap-0.5 px-1.5 xl:px-2 py-1.5 text-[0.68rem] xl:text-[0.81rem] font-semibold rounded transition-colors whitespace-nowrap uppercase tracking-wide ${
           open ? 'bg-white/20 text-white' : 'text-primary-100 hover:bg-white/10 hover:text-white'
         }`}
       >
@@ -150,7 +152,7 @@ function LangDropdown({ lang, onSelect }) {
     <div className="relative" onClick={e => e.stopPropagation()}>
       <button
         onClick={() => setOpen(o => !o)}
-        className="flex items-center gap-1 px-2 py-1 rounded border border-white/30 text-[0.68rem] font-bold text-white hover:bg-white/10 transition-colors whitespace-nowrap"
+        className="flex items-center gap-1 px-2 py-1 rounded border border-white/30 text-[0.78rem] font-bold text-white hover:bg-white/10 transition-colors whitespace-nowrap"
       >
         <FaGlobe className="text-[9px] opacity-80" />
         {current.label}
@@ -231,7 +233,7 @@ export default function Navbar() {
                     to={item.to}
                     end={item.exact}
                     className={({ isActive }) =>
-                      `px-1.5 xl:px-2 py-1.5 text-[0.65rem] xl:text-[0.7rem] font-semibold rounded transition-colors whitespace-nowrap uppercase tracking-wide ${
+                      `px-1.5 xl:px-2 py-1.5 text-[0.68rem] xl:text-[0.81rem] font-semibold rounded transition-colors whitespace-nowrap uppercase tracking-wide ${
                         isActive
                           ? 'bg-white/20 text-white'
                           : 'text-primary-100 hover:bg-white/10 hover:text-white'
@@ -245,7 +247,7 @@ export default function Navbar() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-1.5 xl:px-2 py-1.5 text-[0.65rem] xl:text-[0.7rem] font-semibold rounded transition-colors whitespace-nowrap uppercase tracking-wide text-primary-100 hover:bg-white/10 hover:text-white"
+                    className="px-1.5 xl:px-2 py-1.5 text-[0.68rem] xl:text-[0.81rem] font-semibold rounded transition-colors whitespace-nowrap uppercase tracking-wide text-primary-100 hover:bg-white/10 hover:text-white"
                   >{lbl(item, lang)}</a>
                 )
               })}
@@ -397,19 +399,26 @@ export default function Navbar() {
                   className="w-8 h-8 rounded-full object-cover" />
               </Link>
               <p className="font-hindi font-bold text-red-600 leading-tight truncate"
-                 style={{ fontSize: 'clamp(0.62rem, 1.4vw, 0.88rem)' }}>
+                 style={{ fontSize: 'clamp(0.62rem, 1.62vw, 1.01rem)' }}>
                 महायोगी गुरु गोरखनाथ राजकीय महाविद्यालय बिथ्याणी, यमकेश्वर, पौड़ी गढ़वाल
               </p>
             </div>
             {/* Right: affiliation (desktop only) */}
-            <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
+            <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+              <img
+                src="/ukr.png"
+                alt="Uttarakhand Rajya"
+                className="w-10 h-10 object-contain"
+                onError={e => { e.target.style.display = 'none' }}
+              />
+              <div className="w-px h-8 bg-gray-300 mx-1" />
               <img
                 src="/Mahayogi%20Guru%20Gorakhnath%20Govt/Sri_Dev_Suman_Uttarakhand_University_Logo.png"
                 alt="SDSUV"
-                className="w-7 h-7 object-contain"
+                className="w-10 h-10 object-contain"
                 onError={e => { e.target.style.display = 'none' }}
               />
-              <p className="text-primary-800 font-semibold text-[0.6rem] leading-tight">
+              <p className="text-primary-800 font-semibold text-[0.9rem] leading-tight">
                 Affiliated to Sri Dev Suman Uttarakhand University
               </p>
             </div>
@@ -446,15 +455,15 @@ export default function Navbar() {
                 </Link>
                 <div className="min-w-0">
                   <p className="font-hindi font-extrabold text-red-600 leading-snug"
-                     style={{ fontSize: 'clamp(0.82rem, 1.5vw, 1.15rem)' }}>
+                     style={{ fontSize: 'clamp(0.82rem, 1.73vw, 1.33rem)' }}>
                     महायोगी गुरु गोरखनाथ राजकीय महाविद्यालय बिथ्याणी
                   </p>
                   <p className="font-hindi font-semibold text-gray-600 leading-tight mt-0.5"
-                     style={{ fontSize: 'clamp(0.65rem, 1vw, 0.82rem)' }}>
+                     style={{ fontSize: 'clamp(0.65rem, 1.16vw, 0.95rem)' }}>
                     यमकेश्वर, पौड़ी गढ़वाल, उत्तराखंड – 246121
                   </p>
                   <p className="text-primary-700 font-semibold leading-tight mt-0.5"
-                     style={{ fontSize: 'clamp(0.58rem, 0.9vw, 0.75rem)' }}>
+                     style={{ fontSize: 'clamp(0.58rem, 1.04vw, 0.87rem)' }}>
                     Mahayogi Gurugorakhnath Govt. Degree College Bithyani, Yamkeswar, Pauri Garhwal, Uttarakhand
                   </p>
                 </div>
@@ -462,6 +471,15 @@ export default function Navbar() {
 
               {/* RIGHT: affiliations */}
               <div className="flex-shrink-0 flex items-center gap-3 border-l border-gray-200 pl-4">
+                {/* Uttarakhand Govt Logo */}
+                <img
+                  src="/ukr.png"
+                  alt="Uttarakhand Rajya"
+                  className="w-10 h-10 lg:w-12 lg:h-12 object-contain flex-shrink-0"
+                  onError={e => { e.target.style.display = 'none' }}
+                />
+                {/* Separator */}
+                <div className="hidden lg:block w-px h-10 bg-gray-200" />
                 {/* Current: SDSUV */}
                 <a href="https://www.sdsuv.ac.in/" target="_blank" rel="noopener noreferrer"
                    className="flex items-center gap-2 group">
@@ -472,22 +490,22 @@ export default function Navbar() {
                     onError={e => { e.target.style.display = 'none' }}
                   />
                   <div className="text-right">
-                    <p className="text-[0.55rem] text-gray-400 leading-tight">Affiliated to</p>
-                    <p className="text-primary-800 font-bold leading-tight text-[0.62rem] lg:text-[0.68rem] group-hover:text-primary-600 transition-colors">
+                    <p className="text-[0.64rem] text-gray-400 leading-tight">Affiliated to</p>
+                    <p className="text-primary-800 font-bold leading-tight text-[0.72rem] lg:text-[0.78rem] group-hover:text-primary-600 transition-colors">
                       Sri Dev Suman<br />Uttarakhand University
                     </p>
-                    <p className="text-gray-400 leading-tight text-[0.55rem]">Tehri Garhwal</p>
+                    <p className="text-gray-400 leading-tight text-[0.64rem]">Tehri Garhwal</p>
                   </div>
                 </a>
                 {/* Separator */}
                 <div className="hidden lg:block w-px h-10 bg-gray-200 mx-1" />
                 {/* UGC / NAAC badges */}
                 <div className="hidden lg:flex flex-col items-center gap-1">
-                  <span className="text-[0.52rem] font-bold text-gray-400 uppercase tracking-wide">Recognised by</span>
+                  <span className="text-[0.61rem] font-bold text-gray-400 uppercase tracking-wide">Recognised by</span>
                   <div className="flex items-center gap-1.5">
-                    <span className="px-1.5 py-0.5 rounded bg-primary-100 text-primary-700 text-[0.55rem] font-bold">UGC</span>
-                    <span className="px-1.5 py-0.5 rounded bg-orange-100 text-orange-700 text-[0.55rem] font-bold">NAAC</span>
-                    <span className="px-1.5 py-0.5 rounded bg-green-100 text-green-700 text-[0.55rem] font-bold">Govt.</span>
+                    <span className="px-1.5 py-0.5 rounded bg-primary-100 text-primary-700 text-[0.64rem] font-bold">UGC</span>
+                    <span className="px-1.5 py-0.5 rounded bg-orange-100 text-orange-700 text-[0.64rem] font-bold">NAAC</span>
+                    <span className="px-1.5 py-0.5 rounded bg-green-100 text-green-700 text-[0.64rem] font-bold">Govt.</span>
                   </div>
                 </div>
               </div>
