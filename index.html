@@ -3,39 +3,83 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Mahayogi Guru Gorakhnath Rajkiya Mahavidyalaya Bithyani — Government Degree College, Yamkeshwar, Pauri Garhwal, Uttarakhand. Providing quality higher education since 2005." />
-    <meta name="keywords" content="GDC Bithyani, Government College Bithyani, Yamkeshwar College, Pauri Garhwal, Uttarakhand College, BA degree, Mahayogi Guru Gorakhnath" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Mahayogi Guru Gorakhnath Rajkiya Mahavidyalaya Bithyani — Government Degree College, Yamkeshwar, Pauri Garhwal, Uttarakhand. Providing quality higher education since 2005."
+    />
+    <meta
+      name="keywords"
+      content="GDC Bithyani, Government College Bithyani, Yamkeshwar College, Pauri Garhwal, Uttarakhand College, BA degree, Mahayogi Guru Gorakhnath"
+    />
     <meta name="theme-color" content="#1e40af" />
     <!-- Open Graph -->
-    <meta property="og:title" content="Mahayogi Guru Gorakhnath Rajkiya Mahavidyalaya Bithyani" />
-    <meta property="og:description" content="Government Degree College, Yamkeshwar, Pauri Garhwal, Uttarakhand" />
+    <meta
+      property="og:title"
+      content="Mahayogi Guru Gorakhnath Rajkiya Mahavidyalaya Bithyani"
+    />
+    <meta
+      property="og:description"
+      content="Government Degree College, Yamkeshwar, Pauri Garhwal, Uttarakhand"
+    />
     <meta property="og:type" content="website" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>महायोगी गुरु गोरखनाथ राजकीय महाविद्यालय बिथ्याणी</title>
     <script>
       // Prevent iOS pinch-to-zoom (iOS ignores user-scalable=no since iOS 10)
-      document.addEventListener('touchstart', function(e) {
-        if (e.touches.length > 1) e.preventDefault();
-      }, { passive: false });
+      document.addEventListener(
+        "touchstart",
+        function (e) {
+          if (e.touches.length > 1) e.preventDefault();
+        },
+        { passive: false },
+      );
       var lastTouchEnd = 0;
-      document.addEventListener('touchend', function(e) {
-        var now = Date.now();
-        if (now - lastTouchEnd <= 300) e.preventDefault();
-        lastTouchEnd = now;
-      }, { passive: false });
+      document.addEventListener(
+        "touchend",
+        function (e) {
+          var now = Date.now();
+          if (now - lastTouchEnd <= 300) e.preventDefault();
+          lastTouchEnd = now;
+        },
+        { passive: false },
+      );
       // Prevent gesture events (Safari-specific)
-      document.addEventListener('gesturestart',  function(e) { e.preventDefault(); }, { passive: false });
-      document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, { passive: false });
-      document.addEventListener('gestureend',   function(e) { e.preventDefault(); }, { passive: false });
+      document.addEventListener(
+        "gesturestart",
+        function (e) {
+          e.preventDefault();
+        },
+        { passive: false },
+      );
+      document.addEventListener(
+        "gesturechange",
+        function (e) {
+          e.preventDefault();
+        },
+        { passive: false },
+      );
+      document.addEventListener(
+        "gestureend",
+        function (e) {
+          e.preventDefault();
+        },
+        { passive: false },
+      );
     </script>
   </head>
   <body>
     <!-- Google Translate hidden element -->
-    <div id="google_translate_element" style="display:none"></div>
+    <div id="google_translate_element" style="display: none"></div>
 
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
@@ -44,19 +88,26 @@
     <script type="text/javascript">
       // ── Suppress GT toolbar bar + body shift ────────────────────────────
       function _killGTBar() {
-        var frames = document.querySelectorAll('.goog-te-banner-frame, iframe.skiptranslate');
-        frames.forEach(function(f) { f.style.cssText = 'display:none!important;visibility:hidden!important;'; });
+        var frames = document.querySelectorAll(
+          ".goog-te-banner-frame, iframe.skiptranslate",
+        );
+        frames.forEach(function (f) {
+          f.style.cssText =
+            "display:none!important;visibility:hidden!important;";
+        });
         if (document.body) {
-          document.body.style.top = '0px';
-          document.body.style.marginTop = '0px';
+          document.body.style.top = "0px";
+          document.body.style.marginTop = "0px";
         }
-        document.documentElement.style.removeProperty('top');
+        document.documentElement.style.removeProperty("top");
       }
 
       var _killTimer = setInterval(_killGTBar, 100);
-      setTimeout(function() { clearInterval(_killTimer); }, 6000);
+      setTimeout(function () {
+        clearInterval(_killTimer);
+      }, 6000);
 
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         var obs = new MutationObserver(_killGTBar);
         obs.observe(document.body, { childList: true, subtree: false });
       });
@@ -64,64 +115,77 @@
       // ── Set googtrans cookie (primary GT mechanism, survives reload) ─────
       // Source is always 'hi' because all page content is written in Hindi
       function _setGTCookie(lang) {
-        var val = '/hi/' + lang;  // e.g. /hi/en or /hi/hi
-        document.cookie = 'googtrans=' + val + '; path=/';
+        var val = "/hi/" + lang; // e.g. /hi/en or /hi/hi
+        document.cookie = "googtrans=" + val + "; path=/";
         try {
-          document.cookie = 'googtrans=' + val + '; path=/; domain=' + window.location.hostname;
-        } catch(e) {}
+          document.cookie =
+            "googtrans=" + val + "; path=/; domain=" + window.location.hostname;
+        } catch (e) {}
       }
 
       // ── Translation init ──────────────────────────────────────────────────
       function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-          pageLanguage: 'hi',   // actual content language is Hindi
-          includedLanguages: 'hi,en',
-          autoDisplay: false,
-          multilanguagePage: false,
-          gaTrack: false
-        }, 'google_translate_element');
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "hi", // actual content language is Hindi
+            includedLanguages: "hi,en",
+            autoDisplay: false,
+            multilanguagePage: false,
+            gaTrack: false,
+          },
+          "google_translate_element",
+        );
 
         // Apply saved/default language after widget is ready
-        var savedLang = localStorage.getItem('gdc_lang') || 'hi';
+        var savedLang = localStorage.getItem("gdc_lang") || "hi";
         _setGTCookie(savedLang);
         _applyLangViaCombo(savedLang, 0);
       }
 
       // Retry-based combo select (GT may not render immediately)
       function _applyLangViaCombo(lang, attempt) {
-        var sel = document.querySelector('.goog-te-combo');
+        var sel = document.querySelector(".goog-te-combo");
         if (sel) {
           sel.value = lang;
-          sel.dispatchEvent(new Event('change'));
+          sel.dispatchEvent(new Event("change"));
           setTimeout(_killGTBar, 300);
           setTimeout(_killGTBar, 900);
         } else if (attempt < 25) {
-          setTimeout(function() { _applyLangViaCombo(lang, attempt + 1); }, 200);
+          setTimeout(function () {
+            _applyLangViaCombo(lang, attempt + 1);
+          }, 200);
         }
       }
 
       // ── Global helpers used by React ──────────────────────────────────────
-      window._gdcSetLang = function(lang) {
-        localStorage.setItem('gdc_lang', lang);
+      window._gdcSetLang = function (lang) {
+        localStorage.setItem("gdc_lang", lang);
         _setGTCookie(lang);
         // Notify React components so they can sync state
-        window.dispatchEvent(new CustomEvent('gdcLangChange', { detail: { lang: lang } }));
+        window.dispatchEvent(
+          new CustomEvent("gdcLangChange", { detail: { lang: lang } }),
+        );
         _applyLangViaCombo(lang, 0);
       };
 
-      window._gdcGetLang = function() {
-        var stored = localStorage.getItem('gdc_lang');
+      window._gdcGetLang = function () {
+        var stored = localStorage.getItem("gdc_lang");
         if (stored) return stored;
         // Fallback: read from googtrans cookie
-        var c = document.cookie.split(';').find(function(s) { return s.trim().indexOf('googtrans=') === 0; });
+        var c = document.cookie.split(";").find(function (s) {
+          return s.trim().indexOf("googtrans=") === 0;
+        });
         if (c) {
-          var parts = decodeURIComponent(c.trim().split('=')[1] || '').split('/');
+          var parts = decodeURIComponent(c.trim().split("=")[1] || "").split(
+            "/",
+          );
           var target = parts[parts.length - 1];
-          if (target && target.length === 2 && target !== 'en') return target;
+          if (target && target.length === 2 && target !== "en") return target;
         }
-        return 'hi';
+        return "hi";
       };
     </script>
+    <script src="https://www.callshivai.com/widget2.js?agentId=69e081778d2bce70470f6425&userId=693fb0124d5cc875f895c273"></script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>
