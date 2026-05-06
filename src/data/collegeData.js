@@ -28,7 +28,7 @@ export const affiliations = [
     nameHindi: 'श्री देव सुमन उत्तराखंड विश्वविद्यालय',
     period: '2018 – Present',
     location: 'Badshahithaul, Tehri Garhwal',
-    logo: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/Sri_Dev_Suman_Uttarakhand_University_Logo.png',
+    logo: '/Mahayogi%20Guru%20Gorakhnath%20Govt/Sri_Dev_Suman_Uttarakhand_University_Logo.png',
     current: true,
   },
   {
@@ -36,7 +36,7 @@ export const affiliations = [
     nameHindi: 'हेमवती नंदन बहुगुणा गढ़वाल विश्वविद्यालय',
     period: '2005 – 2018',
     location: 'Srinagar, Garhwal',
-    logo: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/HNBG-new-logo.png',
+    logo: '/Mahayogi%20Guru%20Gorakhnath%20Govt/HNBG-new-logo.png',
     current: false,
   },
 ]
@@ -67,7 +67,7 @@ export const stats = [
 
 // Helper: build faculty photo URL from the old website's image directory
 const fp = (file) =>
-  `https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/fac%20%26%20staff/${encodeURIComponent(file)}`
+  `/Mahayogi%20Guru%20Gorakhnath%20Govt/fac%20%26%20staff/${encodeURIComponent(file)}`
 
 export const teachingStaff = [
   { id: 1,  name: 'प्रो. योगेश कुमार शर्मा', nameEn: 'Prof. Yogesh Kumar Sharma',    designation: 'Principal & Professor of Physics',              designationHindi: 'प्राचार्य, प्रोफ़ेसर भौतिक विज्ञान', email: 'info@gdcbithyani.ac.in',       isPrincipal: true,  avatar: 'YKS', photo: fp('prof yks.webp') },
@@ -319,17 +319,17 @@ export const importantLinks = [
 // ─── Gallery Images ───────────────────────────────────────────────────────────
 
 export const galleryImages = [
-  { id: 1,  src: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/11.png',  alt: 'College Campus',      category: 'Campus' },
-  { id: 2,  src: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/12.png',  alt: 'College Building',    category: 'Campus' },
-  { id: 3,  src: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/10.png',  alt: 'College Activity',    category: 'Events' },
-  { id: 4,  src: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/9.png',   alt: 'College Event',       category: 'Events' },
-  { id: 5,  src: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/1.png',      alt: 'Campus View 1',       category: 'Campus' },
-  { id: 6,  src: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/2.png',      alt: 'Campus View 2',       category: 'Campus' },
-  { id: 7,  src: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%201.png', alt: 'College Front', category: 'Campus' },
-  { id: 8,  src: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%202.png', alt: 'College Side',  category: 'Campus' },
-  { id: 9,  src: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/1.png',    alt: 'College Slide 1',     category: 'Events' },
-  { id: 10, src: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/2.png',    alt: 'College Slide 2',     category: 'Events' },
-  { id: 11, src: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/3.png',    alt: 'College Slide 3',     category: 'Academic' },
+  { id: 1,  src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/11.png',  alt: 'College Campus',      category: 'Campus' },
+  { id: 2,  src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/12.png',  alt: 'College Building',    category: 'Campus' },
+  { id: 3,  src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/10.png',  alt: 'College Activity',    category: 'Events' },
+  { id: 4,  src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/9.png',   alt: 'College Event',       category: 'Events' },
+  { id: 5,  src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/card/1.png',      alt: 'Campus View 1',       category: 'Campus' },
+  { id: 6,  src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/card/2.png',      alt: 'Campus View 2',       category: 'Campus' },
+  { id: 7,  src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%201.png', alt: 'College Front', category: 'Campus' },
+  { id: 8,  src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%202.png', alt: 'College Side',  category: 'Campus' },
+  { id: 9,  src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/1.png',    alt: 'College Slide 1',     category: 'Events' },
+  { id: 10, src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/2.png',    alt: 'College Slide 2',     category: 'Events' },
+  { id: 11, src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/3.png',    alt: 'College Slide 3',     category: 'Academic' },
 ]
 
 // ─── Hero Slides ──────────────────────────────────────────────────────────────
@@ -337,7 +337,7 @@ export const galleryImages = [
 export const heroSlides = [
   {
     id: 1,
-    image: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/1.png',
+    image: '/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/1.png',
     title: 'महायोगी गुरु गोरखनाथ',
     subtitle: 'राजकीय महाविद्यालय बिथ्याणी',
     description: 'हरे-भरे गढ़वाल हिमालय की गोद में स्थित — ज्ञान और संस्कृति का केंद्र',
@@ -346,7 +346,7 @@ export const heroSlides = [
   },
   {
     id: 2,
-    image: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/2.png',
+    image: '/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/2.png',
     title: 'Quality Higher Education',
     subtitle: 'In the Green Mountains of Uttarakhand',
     description: 'Affiliated to Sri Dev Suman Uttarakhand University since 2018',
@@ -355,7 +355,7 @@ export const heroSlides = [
   },
   {
     id: 3,
-    image: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/3.png',
+    image: '/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/3.png',
     title: 'Empowering Students',
     subtitle: 'Since 2005',
     description: 'Government recognized institution serving the youth of Yamkeshwar and surrounding areas',

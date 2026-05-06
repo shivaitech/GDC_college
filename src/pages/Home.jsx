@@ -288,13 +288,13 @@ function AboutSection() {
           >
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%201.png"
+                src="/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%201.png"
                 alt="GDC Bithyani Campus"
                 className="rounded-2xl w-full h-48 object-cover shadow-card"
                 onError={e => { e.target.src = 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80' }}
               />
               <img
-                src="https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%202.png"
+                src="/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%202.png"
                 alt="GDC Bithyani Building"
                 className="rounded-2xl w-full h-48 object-cover shadow-card mt-6"
                 onError={e => { e.target.src = 'https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80' }}
@@ -406,7 +406,7 @@ function TributeSection() {
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="rounded-2xl overflow-hidden w-full max-w-[180px] border-4 border-saffron-100 shadow-lg">
                     <img
-                      src="https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/message.png"
+                      src="/Mahayogi%20Guru%20Gorakhnath%20Govt/message.png"
                       alt="Late Anand Singh Bisht Ji"
                       className="w-full object-cover"
                       onError={e => { e.target.style.display = 'none' }}
@@ -612,7 +612,7 @@ function PrincipalMessage() {
               <div className="flex flex-col items-center">
                 <div className="w-32 h-32 rounded-full bg-primary-100 border-4 border-primary-200 overflow-hidden mb-3 shadow-[0_4px_14px_rgba(37,99,235,0.25)]">
                   <img
-                    src="https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/prinj.jpg"
+                    src="/Mahayogi%20Guru%20Gorakhnath%20Govt/card/prinj.jpg"
                     alt="Principal"
                     className="w-full h-full object-cover"
                     onError={e => {

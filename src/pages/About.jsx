@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom'
 import { collegeInfo, affiliations, stats } from '../data/collegeData'
 
 const IMAGES = {
-  college1:  'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%201.png',
-  college2:  'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%202.png',
-  card1:     'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/1.png',
-  card2:     'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/2.png',
-  ba1:       'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/BA%201.png',
-  ba2:       'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/BA%202.png',
-  principal: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/card/prinj.jpg',
-  message:   'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/message.png',
-  slider1:   'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/1.png',
-  slider2:   'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/2.png',
-  slider3:   'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/3.png',
+  college1:  '/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%201.png',
+  college2:  '/Mahayogi%20Guru%20Gorakhnath%20Govt/card/college%202.png',
+  card1:     '/Mahayogi%20Guru%20Gorakhnath%20Govt/card/1.png',
+  card2:     '/Mahayogi%20Guru%20Gorakhnath%20Govt/card/2.png',
+  ba1:       '/Mahayogi%20Guru%20Gorakhnath%20Govt/card/BA%201.png',
+  ba2:       '/Mahayogi%20Guru%20Gorakhnath%20Govt/card/BA%202.png',
+  principal: '/Mahayogi%20Guru%20Gorakhnath%20Govt/card/prinj.jpg',
+  message:   '/Mahayogi%20Guru%20Gorakhnath%20Govt/message.png',
+  slider1:   '/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/1.png',
+  slider2:   '/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/2.png',
+  slider3:   '/Mahayogi%20Guru%20Gorakhnath%20Govt/slider/3.png',
 }
 
 function PageHero() {

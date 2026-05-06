@@ -63,7 +63,7 @@ const navConfig = [
     label:   'डाउनलोड',
     labelEn: 'Downloads',
     dropdown: [
-      { label: 'महाविद्यालय प्रॉस्पेक्टस',  labelEn: 'College Prospectus',    href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/syllabus%20%20pdf/college%20handbook%20prospectus%20pdf.pdf' },
+      { label: 'महाविद्यालय प्रॉस्पेक्टस',  labelEn: 'College Prospectus',    href: '/Mahayogi%20Guru%20Gorakhnath%20Govt/syllabus%20%20pdf/college%20handbook%20prospectus%20pdf.pdf' },
       { label: 'मेरिट लिस्ट – बी.ए. प्रथम', labelEn: 'Merit List – B.A. I',   href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/News/First%20Marit%20List%20BA%20I%20sem%20.pdf' },
       { label: 'शुल्क संरचना 2025–26',       labelEn: 'Fee Structure 2025–26', href: 'https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/News%20paper/First%20Mertit%20list%20BA%20I%20sem.pdf' },
     ],
@@ -404,7 +404,7 @@ export default function Navbar() {
             {/* Right: affiliation (desktop only) */}
             <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
               <img
-                src="https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/Sri_Dev_Suman_Uttarakhand_University_Logo.png"
+                src="/Mahayogi%20Guru%20Gorakhnath%20Govt/Sri_Dev_Suman_Uttarakhand_University_Logo.png"
                 alt="SDSUV"
                 className="w-7 h-7 object-contain"
                 onError={e => { e.target.style.display = 'none' }}
@@ -466,7 +466,7 @@ export default function Navbar() {
                 <a href="https://www.sdsuv.ac.in/" target="_blank" rel="noopener noreferrer"
                    className="flex items-center gap-2 group">
                   <img
-                    src="https://gdcbithyani.ac.in/images/Mahayogi%20Guru%20Gorakhnath%20Govt/Sri_Dev_Suman_Uttarakhand_University_Logo.png"
+                    src="/Mahayogi%20Guru%20Gorakhnath%20Govt/Sri_Dev_Suman_Uttarakhand_University_Logo.png"
                     alt="SDSUV"
                     className="w-10 h-10 lg:w-12 lg:h-12 object-contain flex-shrink-0"
                     onError={e => { e.target.style.display = 'none' }}
