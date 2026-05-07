@@ -387,10 +387,10 @@ export default function Navbar() {
       </div>
 
       {/* ── Row 2: Institutional Identity ── */}
-      <div className="bg-white border-b border-gray-200 w-full overflow-hidden">
+      <div className="bg-white border-b border-gray-200 w-full">
 
         {/* SCROLLED: compact single line — full width, no whitespace */}
-        <div className={`transition-all duration-300 overflow-hidden ${scrolled ? 'max-h-12 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+        <div className={`transition-all duration-300 overflow-hidden ${scrolled ? 'max-h-16 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
           <div className="w-full px-3 sm:px-4 py-1.5 flex items-center justify-between gap-3">
             {/* Left: logo + name */}
             <div className="flex items-center gap-2 min-w-0">
@@ -399,7 +399,7 @@ export default function Navbar() {
                   className="w-8 h-8 rounded-full object-cover" />
               </Link>
               <p className="font-hindi font-bold text-red-600 leading-tight truncate"
-                 style={{ fontSize: 'clamp(0.62rem, 1.62vw, 1.01rem)' }}>
+                 style={{ fontSize: 'clamp(1.0rem, 2.3vw, 1.45rem)' }}>
                 महायोगी गुरु गोरखनाथ राजकीय महाविद्यालय बिथ्याणी, यमकेश्वर, पौड़ी गढ़वाल
               </p>
             </div>
@@ -426,7 +426,7 @@ export default function Navbar() {
         </div>
 
         {/* NOT SCROLLED: full identity block */}
-        <div className={`transition-all duration-300 overflow-hidden ${scrolled ? 'max-h-0 opacity-0 pointer-events-none' : 'max-h-60 opacity-100'}`}>
+        <div className={`transition-all duration-300 overflow-hidden ${scrolled ? 'max-h-0 opacity-0 pointer-events-none' : 'max-h-72 opacity-100'}`}>
           <div className="w-full px-3 sm:px-4 py-2 sm:py-3">
 
             {/* ── Mobile (< md): stacked center ── */}
@@ -455,11 +455,11 @@ export default function Navbar() {
                 </Link>
                 <div className="min-w-0">
                   <p className="font-hindi font-extrabold text-red-600 leading-snug"
-                     style={{ fontSize: 'clamp(0.82rem, 1.73vw, 1.33rem)' }}>
+                     style={{ fontSize: 'clamp(1.05rem, 2.2vw, 1.65rem)' }}>
                     महायोगी गुरु गोरखनाथ राजकीय महाविद्यालय बिथ्याणी
                   </p>
                   <p className="font-hindi font-semibold text-gray-600 leading-tight mt-0.5"
-                     style={{ fontSize: 'clamp(0.65rem, 1.16vw, 0.95rem)' }}>
+                     style={{ fontSize: 'clamp(0.75rem, 1.35vw, 1.05rem)' }}>
                     यमकेश्वर, पौड़ी गढ़वाल, उत्तराखंड – 246121
                   </p>
                   <p className="text-primary-700 font-semibold leading-tight mt-0.5"
