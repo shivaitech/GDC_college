@@ -390,8 +390,8 @@ export default function Navbar() {
       <div className="bg-white border-b border-gray-200 w-full">
 
         {/* SCROLLED: compact single line — full width, no whitespace */}
-        <div className={`transition-all duration-300 overflow-hidden ${scrolled ? 'max-h-16 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-          <div className="w-full px-3 sm:px-4 py-1.5 flex items-center justify-between gap-3">
+        <div className={`transition-all duration-300 overflow-hidden ${scrolled ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+          <div className="w-full px-3 sm:px-4 py-2.5 flex items-center justify-between gap-3">
             {/* Left: logo + name */}
             <div className="flex items-center gap-2 min-w-0">
               <Link to="/" className="flex-shrink-0">
@@ -399,7 +399,7 @@ export default function Navbar() {
                   className="w-8 h-8 rounded-full object-cover" />
               </Link>
               <p className="font-hindi font-bold text-red-600 leading-tight truncate"
-                 style={{ fontSize: 'clamp(1.0rem, 2.3vw, 1.45rem)' }}>
+                 style={{ fontSize: 'clamp(1.05rem, 2.42vw, 1.52rem)' }}>
                 महायोगी गुरु गोरखनाथ राजकीय महाविद्यालय बिथ्याणी, यमकेश्वर, पौड़ी गढ़वाल
               </p>
             </div>
