@@ -12,9 +12,11 @@ const navConfig = [
     label:   'अधिक जानें',
     labelEn: 'Know More',
     dropdown: [
-      { label: 'हमारे बारे में',    labelEn: 'About Us',         to: '/about',   internal: true },
-      { label: 'संकाय एवं स्टाफ',  labelEn: 'Faculty & Staff',  to: '/faculty', internal: true },
-      { label: 'हमारी समिति',       labelEn: 'Our Committee',    href: 'https://gdcbithyani.ac.in/commitee.php' },
+      { label: 'हमारे बारे में',       labelEn: 'About Us',            to: '/about',          internal: true },
+      { label: 'संकाय – कला',          labelEn: 'Faculty – Arts',       to: '/faculty/arts',   internal: true },
+      { label: 'संकाय – विज्ञान',      labelEn: 'Faculty – Science',    to: '/faculty/science', internal: true },
+      { label: 'स्टाफ',                labelEn: 'Staff',                to: '/faculty/staff',  internal: true },
+      { label: 'हमारी समिति',          labelEn: 'Our Committee',        href: 'https://gdcbithyani.ac.in/commitee.php' },
     ],
   },
   {

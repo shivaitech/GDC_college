@@ -41,7 +41,10 @@ export default function App() {
       <Routes>
         <Route path="/"         element={<Home />}     />
         <Route path="/about"    element={<About />}    />
-        <Route path="/faculty"  element={<Faculty />}  />
+        <Route path="/faculty"         element={<Faculty />}                        />
+        <Route path="/faculty/arts"    element={<Faculty section="arts" />}    />
+        <Route path="/faculty/science" element={<Faculty section="science" />} />
+        <Route path="/faculty/staff"   element={<Faculty section="staff" />}   />
         <Route path="/programs" element={<Programs />} />
         <Route path="/gallery"  element={<Gallery />}  />
         <Route path="/contact"      element={<Contact />}      />

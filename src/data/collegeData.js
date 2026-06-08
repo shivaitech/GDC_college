@@ -319,6 +319,14 @@ export const importantLinks = [
 // ─── Gallery Images ───────────────────────────────────────────────────────────
 
 export const galleryImages = [
+  { id: 101, src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/Gallery3/WhatsApp%20Image%202026-06-04%20at%2011.07.36%20AM.jpeg',      alt: 'College Event',   category: 'Events' },
+  { id: 102, src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/Gallery3/WhatsApp%20Image%202026-06-04%20at%2011.07.37%20AM.jpeg',      alt: 'College Event',   category: 'Events' },
+  { id: 103, src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/Gallery3/WhatsApp%20Image%202026-06-04%20at%2011.07.38%20AM.jpeg',      alt: 'College Event',   category: 'Events' },
+  { id: 104, src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/Gallery3/WhatsApp%20Image%202026-06-04%20at%2011.07.39%20AM.jpeg',      alt: 'College Event',   category: 'Events' },
+  { id: 105, src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/Gallery3/WhatsApp%20Image%202026-06-04%20at%2011.07.40%20AM%20(1).jpeg', alt: 'College Event',  category: 'Events' },
+  { id: 106, src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/Gallery3/WhatsApp%20Image%202026-06-04%20at%2011.07.40%20AM.jpeg',      alt: 'College Event',   category: 'Events' },
+  { id: 107, src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/Gallery3/WhatsApp%20Image%202026-06-04%20at%2011.07.41%20AM%20(1).jpeg', alt: 'College Event',  category: 'Events' },
+  { id: 108, src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/Gallery3/WhatsApp%20Image%202026-06-04%20at%2011.07.41%20AM.jpeg',      alt: 'College Event',   category: 'Events' },
   { id: 1,  src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/11.png',  alt: 'College Campus',      category: 'Campus' },
   { id: 2,  src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/12.png',  alt: 'College Building',    category: 'Campus' },
   { id: 3,  src: '/Mahayogi%20Guru%20Gorakhnath%20Govt/gallery/10.png',  alt: 'College Activity',    category: 'Events' },
