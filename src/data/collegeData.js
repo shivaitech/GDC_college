@@ -58,7 +58,7 @@ export const newsItems = [
 
 export const stats = [
   { label: 'Years of Excellence',  labelHindi: 'उत्कृष्टता के वर्ष',  value: 20,   suffix: '+', icon: '🏛️' },
-  { label: 'Teaching Faculty',     labelHindi: 'शिक्षण स्टाफ',        value: 13,   suffix: '',  icon: '👨‍🏫' },
+  { label: 'Teaching Faculty',     labelHindi: 'शिक्षण स्टाफ',        value: 14,   suffix: '',  icon: '👨‍🏫' },
   { label: 'Programs Offered',     labelHindi: 'पाठ्यक्रम',           value: 13,   suffix: '',  icon: '📚' },
   { label: 'Students Enrolled',    labelHindi: 'नामांकित छात्र',      value: 500,  suffix: '+', icon: '👨‍🎓' },
 ]
@@ -67,7 +67,7 @@ export const stats = [
 
 // Helper: build faculty photo URL from the old website's image directory
 const fp = (file) =>
-  `/Mahayogi%20Guru%20Gorakhnath%20Govt/fac%20%26%20staff/${encodeURIComponent(file)}`
+  `/Mahayogi%20Guru%20Gorakhnath%20Govt/fac-staff/${encodeURIComponent(file)}`
 
 export const teachingStaff = [
   { id: 1,  name: 'प्रो. योगेश कुमार शर्मा', nameEn: 'Prof. Yogesh Kumar Sharma',    designation: 'Principal & Professor of Physics',              designationHindi: 'प्राचार्य, प्रोफ़ेसर भौतिक विज्ञान', email: 'info@gdcbithyani.ac.in',       isPrincipal: true,  avatar: 'YKS', photo: fp('prof yks.webp') },
@@ -80,9 +80,10 @@ export const teachingStaff = [
   { id: 8,  name: 'डॉ. गिरिराज सिंह',         nameEn: 'Dr. Giriraj Singh',            designation: 'Assistant Professor, Political Science',        designationHindi: 'सहायक प्राध्यापक, राजनीति विज्ञान', email: 'kasana020214@gmail.com',       isPrincipal: false, avatar: 'GS',  photo: fp('Giriraj.webp') },
   { id: 9,  name: 'डॉ. केशव प्रसाद डबराल',    nameEn: 'Dr. Keshav Prasad Dabral',     designation: 'Assistant Professor, Physics',                  designationHindi: 'सहायक प्राध्यापक, भौतिक विज्ञान',   email: 'keshav.dabral@gmail.com',      isPrincipal: false, avatar: 'KD',  photo: fp('dabral2.webp') },
   { id: 10, name: 'डॉ. हिमानी बडोनी',         nameEn: 'Dr. Himani Badoni',            designation: 'Assistant Professor, Botany',                   designationHindi: 'सहायक प्राध्यापक, वनस्पति विज्ञान', email: 'himani318@gmail.com',          isPrincipal: false, avatar: 'HB',  photo: fp('himani1.webp') },
-  { id: 11, name: 'श्री चेतन भट्ट',           nameEn: 'Shri Chetan Bhatt',            designation: 'Assistant Professor, Chemistry (Guest)',        designationHindi: 'सहायक प्राध्यापक, रसायन विज्ञान (अतिथि)', email: 'cbhatt47@yahoo.com',      isPrincipal: false, avatar: 'CB',  photo: fp('chetan.webp') },
-  { id: 12, name: 'डॉ. मनवीर सिंह कंडारी',   nameEn: 'Dr. Manveer Singh Kandari',    designation: 'Assistant Professor, Zoology (Guest)',          designationHindi: 'सहायक प्राध्यापक, जन्तु विज्ञान (अतिथि)', email: 'manveerkandari@gmail.com', isPrincipal: false, avatar: 'MK',  photo: fp('manveer.webp') },
+  { id: 11, name: 'डॉ. तनुजा बिष्ट',          nameEn: 'Dr. Tanuja Bisht',             designation: 'Assistant Professor, Chemistry',                designationHindi: 'सहायक प्राध्यापक, रसायन विज्ञान',    email: 'tanujabisht.16@gmail.com',     isPrincipal: false, avatar: 'TB',  photo: fp('tanuja.jpeg') },
+  { id: 12, name: 'डॉ. ऋतु कश्यप',           nameEn: 'Dr. Ritu Kashyap',              designation: 'Assistant Professor, Zoology',                  designationHindi: 'सहायक प्राध्यापक, जन्तु विज्ञान',    email: 'rituvishi009@gmail.com',       isPrincipal: false, avatar: 'RK',  photo: fp('ritu.jpeg') },
   { id: 13, name: 'श्री नरेश सिंह राणा',      nameEn: 'Shri Naresh Singh Rana',       designation: 'Yoga Instructor',                               designationHindi: 'योग प्रशिक्षक',                      email: 'Nareshrana640@gmail.com',      isPrincipal: false, avatar: 'NR',  photo: fp('Naresh.webp') },
+  { id: 14, name: 'डॉ. सुरेश कुमार चौबे',      nameEn: 'Dr. Suresh Kumar Chaubey',     designation: 'Assistant Professor, Mathematics',              designationHindi: 'सहायक प्राध्यापक, गणित',            email: 'choubeyitbhu2011@gmail.com',   isPrincipal: false, avatar: 'SC',  photo: fp('suresh.jpeg') },
 ]
 
 export const nonTeachingStaff = [
