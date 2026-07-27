@@ -58,7 +58,7 @@ export const newsItems = [
 
 export const stats = [
   { label: 'Years of Excellence',  labelHindi: 'उत्कृष्टता के वर्ष',  value: 20,   suffix: '+', icon: '🏛️' },
-  { label: 'Teaching Faculty',     labelHindi: 'शिक्षण स्टाफ',        value: 14,   suffix: '',  icon: '👨‍🏫' },
+  { label: 'Teaching Faculty',     labelHindi: 'शिक्षण स्टाफ',        value: 13,   suffix: '',  icon: '👨‍🏫' },
   { label: 'Programs Offered',     labelHindi: 'पाठ्यक्रम',           value: 13,   suffix: '',  icon: '📚' },
   { label: 'Students Enrolled',    labelHindi: 'नामांकित छात्र',      value: 500,  suffix: '+', icon: '👨‍🎓' },
 ]
@@ -70,7 +70,6 @@ const fp = (file) =>
   `/Mahayogi%20Guru%20Gorakhnath%20Govt/fac-staff/${encodeURIComponent(file)}`
 
 export const teachingStaff = [
-  { id: 1,  name: 'प्रो. योगेश कुमार शर्मा', nameEn: 'Prof. Yogesh Kumar Sharma',    designation: 'Principal & Professor of Physics',              designationHindi: 'प्राचार्य, प्रोफ़ेसर भौतिक विज्ञान', email: 'info@gdcbithyani.ac.in',       isPrincipal: true,  avatar: 'YKS', photo: fp('prof yks.webp') },
   { id: 2,  name: 'डॉ. उमेश त्यागी',          nameEn: 'Dr. Umesh Tyagi',              designation: 'Assistant Professor, History',                  designationHindi: 'सहायक प्राध्यापक, इतिहास',          email: 'dr.umeshtyagi78@gmail.com',    isPrincipal: false, avatar: 'UT',  photo: fp('umesh k s.webp') },
   { id: 3,  name: 'श्री विनय कुमार पाण्डेय',  nameEn: 'Shri Vinay Kumar Pandey',      designation: 'Assistant Professor, Economics',                designationHindi: 'सहायक प्राध्यापक, अर्थशास्त्र',     email: 'vinay111pandey@gmail.com',     isPrincipal: false, avatar: 'VP',  photo: fp('vinay p.webp') },
   { id: 4,  name: 'डॉ. राम सिंह सामंत',       nameEn: 'Dr. Ram Singh Samant',         designation: 'Assistant Professor, Sociology',                designationHindi: 'सहायक प्राध्यापक, समाजशास्त्र',     email: 'ramsamant007@gmail.com',       isPrincipal: false, avatar: 'RS',  photo: fp('samant.webp') },
