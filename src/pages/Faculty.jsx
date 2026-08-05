@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer'
 import { FaEnvelope, FaMountain, FaUserTie, FaChalkboardTeacher, FaSearch } from 'react-icons/fa'
 import { teachingStaff, nonTeachingStaff } from '../data/collegeData'
 
-const ARTS_SUBJECTS = ['hindi', 'english', 'sanskrit', 'political science', 'economics', 'history', 'sociology']
+const ARTS_SUBJECTS = ['hindi', 'english', 'sanskrit', 'political science', 'economics', 'history', 'sociology', 'yoga', 'arts']
 const SCIENCE_SUBJECTS = ['physics', 'chemistry', 'botany', 'zoology', 'mathematics', 'computer science', 'math']
 
 function isArts(member) {
