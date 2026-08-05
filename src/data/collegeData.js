@@ -70,7 +70,7 @@ const fp = (file) =>
   `/Mahayogi%20Guru%20Gorakhnath%20Govt/fac-staff/${encodeURIComponent(file)}`
 
 export const teachingStaff = [
-  { id: 2,  name: 'डॉ. उमेश त्यागी',          nameEn: 'Dr. Umesh Tyagi',              designation: 'Assistant Professor, History',                  designationHindi: 'सहायक प्राध्यापक, इतिहास',          email: 'dr.umeshtyagi78@gmail.com',    isPrincipal: false, avatar: 'UT',  photo: fp('umesh k s.webp') },
+  { id: 2,  name: 'डॉ. विकाश रंजन कुमार',     nameEn: 'Dr. Vikash Ranjan Kumar',      designation: 'Assistant Professor, History',                  designationHindi: 'सहायक प्राध्यापक, इतिहास',          email: 'dr.vikashranjansingh@gmail.com', isPrincipal: false, avatar: 'VK',  photo: fp('vikash.png') },
   { id: 3,  name: 'श्री विनय कुमार पाण्डेय',  nameEn: 'Shri Vinay Kumar Pandey',      designation: 'Assistant Professor, Economics',                designationHindi: 'सहायक प्राध्यापक, अर्थशास्त्र',     email: 'vinay111pandey@gmail.com',     isPrincipal: false, avatar: 'VP',  photo: fp('vinay p.webp') },
   { id: 4,  name: 'डॉ. राम सिंह सामंत',       nameEn: 'Dr. Ram Singh Samant',         designation: 'Assistant Professor, Sociology',                designationHindi: 'सहायक प्राध्यापक, समाजशास्त्र',     email: 'ramsamant007@gmail.com',       isPrincipal: false, avatar: 'RS',  photo: fp('samant.webp') },
   { id: 5,  name: 'डॉ. नीरज नौटियाल',         nameEn: 'Dr. Neeraj Nautiyal',          designation: 'Assistant Professor, Sanskrit',                 designationHindi: 'सहायक प्राध्यापक, संस्कृत',         email: 'nnautiyal098@gmail.com',       isPrincipal: false, avatar: 'NN',  photo: fp('neeraj.webp') },
