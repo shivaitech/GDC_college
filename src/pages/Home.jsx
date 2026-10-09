@@ -360,10 +360,10 @@ const DIGNITARIES = [
     badge: 'bg-blue-100 text-blue-800',
   },
   {
-    name: 'Dr. Ranjit Kumar Sinha',
+    name: 'Dr. B. V. R. C. Purushottam',
     role: 'Secretary',
     roleHindi: 'सचिव, उच्च शिक्षा',
-    photo: 'https://cdnbbsr.s3waas.gov.in/s39ed9328611fe3f45b3cce8ffe386ee97/uploads/2025/01/2025012051990594.jpeg',
+    photo: '/Mahayogi%20Guru%20Gorakhnath%20Govt/dignitaries/purushottam.png',
     color: 'from-teal-600 to-cyan-500',
     badge: 'bg-teal-100 text-teal-800',
   },
@@ -694,6 +694,87 @@ function PrincipalMessage() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ─── Latest Magazine ──────────────────────────────────────────────────────────
+// Put the newest issue in /public and update this object.
+const LATEST_MAGAZINE = {
+  title: 'Goraksh Magazine',
+  titleHindi: 'गोरक्ष पत्रिका',
+  issue: 'Latest Issue',
+  file: '/Mahayogi%20Guru%20Gorakhnath%20Govt/Goraksh%20Magzine.pdf',
+}
+
+function MagazineSection() {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
+  const { title, titleHindi, issue, file } = LATEST_MAGAZINE
+  // #toolbar/navpanes hints are honoured by Chrome/Edge; other browsers ignore them
+  const viewerSrc = `${file}#view=FitH&toolbar=0&navpanes=0`
+
+  return (
+    <section ref={ref} className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-10">
+          <span className="badge bg-saffron-100 text-saffron-700 mb-3">{issue}</span>
+          <h2 className="section-title">{title}</h2>
+          <p className="text-xs text-gray-400 font-hindi mt-1">{titleHindi}</p>
+          <div className="section-divider"></div>
+          <p className="section-subtitle mx-auto mt-3">
+            Read our latest magazine right here — scroll through the pages, or open it in full screen.
+          </p>
+        </div>
+
+        <div
+          className={`max-w-5xl mx-auto bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden transition-all duration-700 ${
+            inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          {/* Toolbar */}
+          <div className="bg-primary-800 px-5 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div className="flex items-center gap-2 text-white">
+              <FaBook className="text-saffron-400" />
+              <span className="font-semibold text-sm">{title} — {issue}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <a
+                href={file}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors"
+              >
+                Full Screen <FaExternalLinkAlt className="text-[9px]" />
+              </a>
+              <a
+                href={file}
+                download
+                className="flex items-center gap-1.5 bg-saffron-500 hover:bg-saffron-400 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors"
+              >
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+          {/* Scrollable PDF viewer */}
+          <div className="bg-gray-100">
+            <iframe
+              title={`${title} — ${issue}`}
+              src={viewerSrc}
+              loading="lazy"
+              className="w-full block border-0 h-[70vh] min-h-[420px] md:h-[80vh]"
+            />
+          </div>
+
+          {/* Fallback for browsers that can't render PDFs inline (mostly mobile) */}
+          <p className="px-5 py-3 text-center text-xs text-gray-500 border-t border-gray-100">
+            Can't see the magazine?{' '}
+            <a href={file} target="_blank" rel="noopener noreferrer" className="text-primary-700 font-semibold hover:underline">
+              Open the PDF in a new tab
+            </a>
+          </p>
         </div>
       </div>
     </section>
@@ -1172,6 +1253,7 @@ export default function Home() {
       <TributeSection />
       <ProgramsSection />
       <PrincipalMessage />
+      <MagazineSection />
       <FacilitiesSection />
       <EnquirySection />
       <GalleryPreview />
