@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
@@ -9,6 +9,8 @@ import {
   FaEnvelope, FaPlay, FaClock, FaWallet,
 } from 'react-icons/fa'
 import NewsTicker from '../components/NewsTicker'
+
+const PdfReader = lazy(() => import('../components/PdfReader'))
 
 // ─── Program metadata (badge, image, tags) ───────────────────────────────────
 const programMeta = {
@@ -711,9 +713,9 @@ const LATEST_MAGAZINE = {
 
 function MagazineSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
+  // Only fetch the (large) PDF viewer once the section is near the screen
+  const { ref: viewerRef, inView: showViewer } = useInView({ triggerOnce: true, rootMargin: '300px' })
   const { title, titleHindi, issue, file } = LATEST_MAGAZINE
-  // #toolbar/navpanes hints are honoured by Chrome/Edge; other browsers ignore them
-  const viewerSrc = `${file}#view=FitH&toolbar=0&navpanes=0`
 
   return (
     <section ref={ref} className="py-20 bg-gray-50">
@@ -759,18 +761,16 @@ function MagazineSection() {
           </div>
 
           {/* Scrollable PDF viewer */}
-          <div className="bg-gray-100">
-            <iframe
-              title={`${title} — ${issue}`}
-              src={viewerSrc}
-              loading="lazy"
-              className="w-full block border-0 h-[70vh] min-h-[420px] md:h-[80vh]"
-            />
+          <div ref={viewerRef} className="bg-gray-100 min-h-[420px]">
+            {showViewer && (
+              <Suspense fallback={<p className="text-center text-sm text-gray-500 py-10">Loading magazine…</p>}>
+                <PdfReader file={file} />
+              </Suspense>
+            )}
           </div>
 
-          {/* Fallback for browsers that can't render PDFs inline (mostly mobile) */}
           <p className="px-5 py-3 text-center text-xs text-gray-500 border-t border-gray-100">
-            Can't see the magazine?{' '}
+            Pinch or use +/− to zoom. Can't see the magazine?{' '}
             <a href={file} target="_blank" rel="noopener noreferrer" className="text-primary-700 font-semibold hover:underline">
               Open the PDF in a new tab
             </a>
